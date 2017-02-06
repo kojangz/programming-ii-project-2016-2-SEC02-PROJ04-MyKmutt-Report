@@ -9,8 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mykmutt.report.demo.datasource.ConnectionBuilder;
@@ -52,8 +50,6 @@ public class Place {
         Place p = null;
         try {
             Connection con = ConnectionBuilder.getConnection();
-            // Statement stmt = con.createStatement();
-            // String sqlCmd = "SELECT * FROM students WHERE student_id = " + studentId;
             String sqlCmd = "SELECT * FROM place WHERE place_id = ?";
             PreparedStatement pstm = con.prepareStatement(sqlCmd);
             pstm.setInt(1, id);
