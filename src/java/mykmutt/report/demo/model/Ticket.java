@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,6 +21,7 @@ import mykmutt.report.demo.datasource.ConnectionBuilder;
  * @author Koichi
  */
 public class Ticket {
+
     private int id;
     private String name;
     private String desc;
@@ -66,7 +68,7 @@ public class Ticket {
     public void setDesc(String desc) {
         this.desc = desc;
     }
-    
+
     public static Ticket getTicketById(int id) {
         Ticket t = null;
         try {
@@ -95,16 +97,37 @@ public class Ticket {
             Logger.getLogger(Place.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    /*
-    public static void main(String[] args) {
-        System.out.println(Ticket.getTicketById(2));
-    }
-    */
 
+    public static List<Ticket> getAllTickets() {
+        Ticket t = null;
+        List<Ticket> tickets = null;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement stmt = conn.createStatement();
+            String sqlCmd = "SELECT * FROM ticket";
+            ResultSet rs = stmt.executeQuery(sqlCmd);
+            while (rs.next()) {
+                t = new Ticket();
+                ORM(t, rs);
+                if (tickets == null) {
+                    tickets = new ArrayList<Ticket>();
+                }
+                tickets.add(t);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tickets;
+    }
+
+    
+//    public static void main(String[] args) {
+//        System.out.println(Ticket.getAllTickets());
+//    }
+    
     @Override
     public String toString() {
         return "Ticket{" + "id=" + id + ", name=" + name + ", desc=" + desc + ", place=" + place + '}';
     }
-    
+
 }
