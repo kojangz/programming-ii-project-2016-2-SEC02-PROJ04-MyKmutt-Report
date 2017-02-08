@@ -9,6 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mykmutt.report.demo.datasource.ConnectionBuilder;
@@ -72,10 +75,31 @@ public class Place {
             Logger.getLogger(Place.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static List<Place> getAllPlaces() {
+        Place p = null;
+        List<Place> places = null;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement stmt = conn.createStatement();
+            String sqlCmd = "SELECT * FROM place";
+            ResultSet rs = stmt.executeQuery(sqlCmd);
+            while (rs.next()) {
+                p = new Place();
+                ORM(p, rs);
+                if (places == null) {
+                    places = new ArrayList<Place>();
+                }
+                places.add(p);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return places;
+    }
 /*
     public static void main(String[] args) {
-        Place p1 = Place.getPlaceById(2);
-        System.out.println(p1.toString());
+        System.out.println(Place.getAllPlaces());
     }
 */
     @Override

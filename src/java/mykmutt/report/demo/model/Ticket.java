@@ -120,6 +120,23 @@ public class Ticket {
         return tickets;
     }
 
+    public boolean addTicket() {
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            String sqlCmd = "INSERT INTO ticket(ticket_name, ticket_desc, ticket_place) VALUES(?,?,?)";
+            PreparedStatement pstm = conn.prepareStatement(sqlCmd);
+            pstm.setString(1, name);
+            pstm.setString(2, desc);
+            pstm.setInt(3, place.getId());
+            int result = pstm.executeUpdate();
+            if (result != 0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false;
+    }
     
 //    public static void main(String[] args) {
 //        System.out.println(Ticket.getAllTickets());

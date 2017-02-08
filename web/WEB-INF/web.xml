@@ -4,9 +4,17 @@
         <servlet-name>ListTickets</servlet-name>
         <servlet-class>mykmutt.report.demo.servlet.ListTickets</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddTicket</servlet-name>
+        <servlet-class>mykmutt.report.demo.servlet.AddTicket</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListTickets</servlet-name>
         <url-pattern>/ListTickets</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddTicket</servlet-name>
+        <url-pattern>/AddTicket</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

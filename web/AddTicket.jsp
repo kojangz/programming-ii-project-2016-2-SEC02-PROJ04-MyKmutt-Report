@@ -4,8 +4,9 @@
     Author     : Koichi
 --%>
 
-<%@page import="mykmutt.report.demo.model.Ticket"%>
+<%@page import="mykmutt.report.demo.model.Place"%>
 <%@page import="java.util.List"%>
+<%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,15 +15,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Report - Ticket List</title>
+        <title>Report - Add Ticket</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="css/sticky-footer-navbar.css" rel="stylesheet">
-
-        <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,8 +47,8 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="ListTickets">Home</a></li>
-                        <li><a href="AddTicket">Add Ticket</a></li>
+                        <li><a href="ListTickets">Home</a></li>
+                        <li class="active"><a href="AddTicket">Add Ticket</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -58,30 +57,43 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>List All Tickets</h1>
+                <h1>Add Ticket</h1>
             </div>
-
-            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Ticket Title</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        List<Ticket> tickets = (List) request.getAttribute("tickets");
-                        for (Ticket t : tickets) {
-                    %>
-                    <tr>
-                        <td><%=t.getId()%></td>
-                        <td><%=t.getName()%></td>
-                    </tr>
-                    <%
-                        }
-                    %>
-                </tbody>
-            </table>
+            
+            <%
+                if (request.getAttribute("code") != null) {
+            %>
+            <div class="alert alert-<%=(String)request.getAttribute("code")%>">
+                <strong><%=(String)request.getAttribute("alert")%></strong> <%=(String)request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
+            
+            <form action="AddTicket" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input name="name" type="text" class="form-control" id="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea name="desc" class="form-control" id="desc" rows="3" placeholder="Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="place">Place</label>
+                    <select name="place" id="place" class="form-control">
+                        <%
+                            List<Place> places = (List) request.getAttribute("places");
+                            for (Place p : places) {
+                        %>
+                        <option value="<%=p.getId()%>"><%=p.getName()%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+                </div>
+                <button type="submit" name="submit" class="btn btn-default">Submit</button>
+            </form>
         </div>
 
         <footer class="footer">
@@ -95,14 +107,5 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/dataTables.bootstrap.min.js"></script>
-
-        <script type="text/javascript" class="init">
-            $(document).ready(function () {
-                $('#example').DataTable();
-            });
-        </script>
     </body>
 </html>

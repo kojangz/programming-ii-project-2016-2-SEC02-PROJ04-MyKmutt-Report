@@ -29,7 +29,7 @@ public class ConnectionBuilder {
             property.put("password", "");
             property.put("useEncoding", "true");
             property.put("characterEncoding", "UTF-8");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mykmutt_report", property);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mykmutt_report?useUnicode=yes&amp;characterEncoding=utf8", property);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnectionBuilder.class.getName()).log(Level.SEVERE, null, ex);
         }
