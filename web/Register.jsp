@@ -66,10 +66,42 @@
                                 <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาวิทยาการคอมพิวเตอร์ประยุกต์-มัลติมีเดีย</option>
                                 <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขามีเดียอาตส์</option>
                                 <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขามีเดียทางการแพทย์และวิทยาศาสตร์</option>
-                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขา</option>
-                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขา</option>
-                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขา</option>
-                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขา</option>
+                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาวิศวกรรมเครื่องกล</option>
+                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาวิศวกรรมโยธา</option>
+                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาวิศวกรรมอุตสาหการ</option>
+                                <option>คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาเทคโนโลยีมีเดีย</option>
+                                
+                                <option>คณะวิทยาศาสตร์ สาขาคณิตศาสตร์</option>
+                                <option>คณะวิทยาศาสตร์ สาขาเคมี</option>
+                                <option>คณะวิทยาศาสตร์ สาขาจุลชีววิทยา</option>
+                                <option>คณะวิทยาศาสตร์ สาขาฟิสิกส์ประยุกต์</option>
+                                <option>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ประยุกต์</option>
+                                <option>คณะวิทยาศาสตร์ สาขาวิทยาศาสตร์และเทคโนโลยีการอาหาร</option>
+                                <option>คณะวิทยาศาสตร์ สาขาสถิติ</option>
+                                
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                
+                                <option></option>
                             </select>
                         </div>
                 </div>
