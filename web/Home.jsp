@@ -11,10 +11,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
         <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .header{
+                background-color:#000000;
+                color:#F2F2F2;
+                padding-top: 90px;
+                padding-left:30px;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
-            <h1>Home</h1>
+            <div class="header">
+                <h1>Home</h1>
+            </div>
+            
 
             <button type="button" class="btn btn-primary btn-lg btn-block"> Add Ticket </button>
             <button type="button" class="btn btn-default btn-lg btn-block"> Report </button>
