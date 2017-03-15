@@ -16,7 +16,7 @@ import mykmutt.report.demo.model.Ticket;
 
 /**
  *
- * @author Koichi
+ * 
  */
 public class AddTicket extends HttpServlet {
 
