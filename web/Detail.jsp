@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Home
-    Created on : Mar 15, 2017, 6:14:23 PM
+    Document   : Detail
+    Created on : Mar 15, 2017, 7:39:13 PM
     Author     : LENOVO
 --%>
 
@@ -9,10 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
         <link href="css/sticky-footer-navbar.css" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <style>
+        <title>Detail</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Detail</h1>
+            </div>  
+             <style>
             .header{
                 background-color:#F8F8F8;
                 color:#333;
@@ -20,22 +26,16 @@
                 padding-left:30px;
             }
         </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h1>Home</h1>
+            <div class="panel panel-default">
+                <div class="panel-heading"> Title </div>
+                <div class="panel-body">detail</div>
             </div>
 
-
-            <button type="button" class="btn btn-default btn-lg btn-block"> Add Ticket </button>
-            <button type="button" class="btn btn-default btn-lg btn-block"> Report </button>
-            <button type="button" class="btn btn-default btn-lg btn-block"> Register </button>
-        </div>
-    </body>
-    <footer class="footer">
+        </detail>
+</body>
+<footer class="footer">
         <div class="container">
             <p class="text-muted">Written by My KMUTT-Report</p>
         </div>
-    </footer>
+</footer>
 </html>
