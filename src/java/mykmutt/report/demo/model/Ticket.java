@@ -26,6 +26,7 @@ public class Ticket {
     private String name;
     private String desc;
     private Place place;
+    private int status;
 
     public Ticket() {
     }
@@ -37,6 +38,14 @@ public class Ticket {
         this.place = place;
     }
 
+    public Ticket(int id, String name, String desc, Place place, int status) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+        this.place = place;
+        this.status = status;
+    }
+    
     public Place getPlace() {
         return place;
     }
@@ -93,6 +102,7 @@ public class Ticket {
             t.setName(rs.getString("ticket_name"));
             t.setDesc(rs.getString("ticket_desc"));
             t.setPlace(Place.getPlaceById(rs.getInt("ticket_place")));
+            t.setStatus(rs.getInt("ticket_status"));
         } catch (SQLException ex) {
             Logger.getLogger(Place.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -123,7 +133,7 @@ public class Ticket {
     public boolean addTicket() {
         try {
             Connection conn = ConnectionBuilder.getConnection();
-            String sqlCmd = "INSERT INTO ticket(ticket_name, ticket_desc, ticket_place) VALUES(?,?,?)";
+            String sqlCmd = "INSERT INTO ticket(ticket_name, ticket_desc, ticket_place,ticket_status) VALUES(?,?,?,0)";
             PreparedStatement pstm = conn.prepareStatement(sqlCmd);
             pstm.setString(1, name);
             pstm.setString(2, desc);
@@ -147,4 +157,25 @@ public class Ticket {
         return "Ticket{" + "id=" + id + ", name=" + name + ", desc=" + desc + ", place=" + place + '}';
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+    public static boolean update(int ticket_id,int ticket_status){
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            String sqlCmd = "UPDATE ticket SET ticket_status = "+ticket_status+" WHERE ticket_id = "+ticket_id;
+            PreparedStatement pstm = conn.prepareStatement(sqlCmd);
+            int result = pstm.executeUpdate();
+            if (result != 0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false;
+    }
 }
