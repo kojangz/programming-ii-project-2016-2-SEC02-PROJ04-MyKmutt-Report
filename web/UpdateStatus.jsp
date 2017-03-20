@@ -77,6 +77,7 @@
                         <th>ID</th>
                         <th>Ticket Title</th>
                         <th>Detail</th>
+                        <th>Place</th>
                         <th>Update</th>
 
                     </tr>
@@ -96,6 +97,9 @@
                                 out.print(t.getDesc());
                             }
                             %>
+                        </td>
+                        <td>
+                            <%=t.getPlace().getName()%>
                         </td>
                         <td>
                             <form action="UpdateStatus" method="get">
