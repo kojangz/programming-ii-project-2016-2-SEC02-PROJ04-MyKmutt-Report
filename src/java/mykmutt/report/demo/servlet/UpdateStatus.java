@@ -35,6 +35,26 @@ public class UpdateStatus extends HttpServlet {
         String target = "/UpdateStatus.jsp";
         List<Ticket> tickets = Ticket.getAllTickets();
         request.setAttribute("tickets", tickets);
+        String code = "";
+        String alert = "";
+        String ticket_message = "";
+        String ticket_status = request.getParameter("status");
+        String ticket_id = request.getParameter("id");
+        if (ticket_id != null && ticket_status != null) {
+            if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
+                ticket_message = "Update complete!";
+                code = "success";
+                alert = "Success!";
+            } else {
+                ticket_message = "Update incomplete!";
+                code = "warning";
+                alert = "Warning!";
+            }
+        }
+        request.setAttribute("message", ticket_message);
+        request.setAttribute("code", code);
+        request.setAttribute("alert", alert);
+
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 

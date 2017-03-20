@@ -61,6 +61,16 @@
                 <h1>Update Tickets</h1>
             </div>
 
+            <%
+                if (request.getAttribute("code") != null) {
+            %>
+            <div class="alert alert-<%=(String)request.getAttribute("code")%>">
+                <strong><%=(String)request.getAttribute("alert")%></strong> <%=(String)request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
+            
             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -68,6 +78,7 @@
                         <th>Ticket Title</th>
                         <th>Detail</th>
                         <th>Update</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -78,18 +89,31 @@
                     <tr>
                         <td><%=t.getId()%></td>
                         <td><%=t.getName()%></td>
-                        <td><%=t.getDesc()%></td>
+                        <td><%
+                            if(t.getDesc().length() > 100){
+                            out.print(t.getDesc().substring(0,100)+"...");
+                            }
+                            else{
+                                out.print(t.getDesc());
+                            }
+                            %>
+                        </td>
                         <td>
                             <form action="UpdateStatus" method="get">
-                                <input type="hidden" name="id" value="<%=t.getId()%>">
-                                <select name="status" id="status" class="form-control">
+                                <div>
+                                    <input type="hidden" name="id" value="<%=t.getId()%>">
+                                    <select name="status" id="status" class="form-control">
 
-                                    <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
-                                    <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
-                                    <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
-                                </select>
+                                        <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
+                                        <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
+                                        <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
+                                    </select>
+                                    <input type="submit" value="Submit">
+                                </div>
                             </form>
+                            
                         </td>
+
                     </tr>
                     <%
                         }
