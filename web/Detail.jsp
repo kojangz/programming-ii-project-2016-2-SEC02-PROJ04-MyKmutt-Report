@@ -14,22 +14,21 @@
         <title>Detail</title>
     </head>
     <body>
-        <div class="container">
-            <div class="header">
-                <h1>Detail</h1>
-            </div>  
              <style>
             .header{
                 background-color:#F8F8F8;
                 color:#333;
-                padding-top: 30px;
+                padding-top: 20px;
                 padding-left:30px;
-            }
+            }       
         </style>
+        <div class="container">
+            <h1>Detail</h1>
             <div class="panel panel-default">
                 <div class="panel-heading"> Title </div>
                 <div class="panel-body">detail</div>
             </div>
+        </div>
 
         </detail>
 </body>
