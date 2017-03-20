@@ -90,13 +90,13 @@
                     <tr>
                         <td><%=t.getId()%></td>
                         <td><%=t.getName()%></td>
-                        <td><%
+                        <td><a href = "Detail?id=<%=t.getId()%>"><%
                             if (t.getDesc().length() > 100) {
                                 out.print(t.getDesc().substring(0, 100) + "...");
                             } else {
                                 out.print(t.getDesc());
                             }
-                            %>
+                        %></a>
                         </td>
                         <td>
                             <%=t.getPlace().getName()%>

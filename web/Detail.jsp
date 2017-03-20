@@ -4,6 +4,7 @@
     Author     : LENOVO
 --%>
 
+<%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,13 +21,18 @@
                 color:#333;
                 padding-top: 20px;
                 padding-left:30px;
-            }       
+            } 
         </style>
         <div class="container">
             <h1>Detail</h1>
             <div class="panel panel-default">
-                <div class="panel-heading"> Title </div>
-                <div class="panel-body">detail</div>
+                <%
+                     Ticket t = (Ticket)request.getAttribute("ticket");
+                    %>
+                <div class="panel-heading"> Title </div>                               
+                <div class="panel-body">                  
+                    <%=t.getDesc()%>
+                </div>
             </div>
         </div>
 
