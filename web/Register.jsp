@@ -35,13 +35,13 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleName">Your're name</label>
-                            <input type="name" class="form-control" id="exampleName" placeholder="name">
+                            <input type="name" class="form-control" id="exampleName" name="name" placeholder="name">
                         </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleSurname">Your're surname</label>
-                        <input type="surname" class="form-control" id="exampleSurname" placeholder="surname">
+                        <input type="surname" class="form-control" id="exampleSurname" name="surname" placeholder="surname">
                     </div>
                 </div>
             </div>
@@ -50,22 +50,22 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleStudentID">Your're student ID</label>
-                            <input type="ID" class="form-control" id="exampleStudentID" placeholder="ID">
+                            <input type="number" class="form-control" id="exampleStudentID" name="student ID" placeholder="ID">
                         </div>
                 </div>
                 <div class="col-md-6">
                     <label for="exampleStudentID">Your're gender</label>
                     <br>
                     <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Female
+                        <input type="radio" id="inlineCheckbox1" name="gender" value="female"> Female
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Male
+                        <input type="radio" id="inlineCheckbox2" name="gender" value="male"> Male
                     </label>
                 </div>
 
             <div class="col-md-8">
-                <form>
+                <form action=" " method="get">
                     <div class="form-group">
                         <label for="exampleFaculty">Your's faculty</label>
                         <select id="exampleFaculty" class="form-control">
@@ -130,30 +130,39 @@
                         <div class="col-md-6">
                             <form>
                                 <div class="form-group">
-                                    <label for="exampleEmail">Your're Email</label>
-                                    <input type="Email" class="form-control" id="exampleEmail" placeholder="Email......">
+                                    <label for="exampleEmail">E-mail Address</label>
+                                    <input type="Email" class="form-control" id="exampleEmail" name="email" placeholder="Email......">
                                 </div>
                         </div>
+                    </div>
+                     <div class="row">               
+                        <div class="col-md-6">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleUsername">Create Username</label>
+                                    <input type="username" class="form-control" id="exampleUsername" name="username" placeholder="Create Username">
+                                </div>
+                        </div>  
                     </div>
                     <div class="row">               
                         <div class="col-md-6">
                             <form>
                                 <div class="form-group">
                                     <label for="exampleNewPassword">New Password</label>
-                                    <input type="New Password" class="form-control" id="exampleNewPassword" placeholder="New Password">
+                                    <input type="password" class="form-control" id="exampleNewPassword" name="password" placeholder="New Password">
                                 </div>
                         </div>              
                         <div class="col-md-6">
                             <form>
                                 <div class="form-group">
                                     <label for="exampleConfirmPassword">Confirm Password</label>
-                                    <input type="Confirm Password" class="form-control" id="exampleConfirmPassword" placeholder="Confirm Password">
+                                    <input type="password" class="form-control" id="exampleConfirmPassword" name="password" placeholder="Confirm Password">
                                 </div>
                         </div>
                     </div>
                     <div class="button">
-                        <button type="button" class="btn btn-primary btn-lg active">Submit</button>
-                        <button type="button" class="btn btn-default btn-lg active">Reset</button>
+                        <a href="login.jsp"><input type="submit" class="btn btn-primary btn-lg active"></input></a>
+                        <input type="reset" class="btn btn-default btn-lg active"></input>
                     </div>
             </div>
         </div>

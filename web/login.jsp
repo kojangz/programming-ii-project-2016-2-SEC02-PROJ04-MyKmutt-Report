@@ -20,7 +20,7 @@
             }
             .container{
                 background-color:#FFD700;
-                
+
             }
         </style>
     </head>
@@ -33,27 +33,32 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <form>
+                    <form action="" method="get">
                         <div class="form-group">
                             <label for="exampleUsername">Username</label>
-                            <input type="Username" class="form-control" id="exampleUsername" placeholder="Enter Username">
+                            <input type="Username" class="form-control" id="exampleUsername" name="username" placeholder="Enter Username">
                         </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <form>
-                        <div class="form-group">
-                            <label for="examplePassword">Password</label>
-                            <input type="Password" class="form-control" id="examplePassword" placeholder="Enter Password">
-                        </div>
+                    <div class="form-group">
+                        <label for="examplePassword">Password</label>
+                        <input type="Password" class="form-control" id="examplePassword" name="password" placeholder="Enter Password">
+                    </div>
                 </div>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
             </div>
             <div class="button">
                 <p>
-                   <button type="button" class="btn btn-primary btn-lg active">Login</button>
-                   <button type="button" class="btn btn-primary btn-lg active">Register</button>
+                    <input type="submit" class="btn btn-primary btn-lg active" value="Log in"></input>
+                    <a href="Register.jsp"><button type="button" class="btn btn-primary btn-lg active">Register</button></a>
                 </p>
+                </form>
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
