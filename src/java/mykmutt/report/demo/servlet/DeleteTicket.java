@@ -18,7 +18,7 @@ import mykmutt.report.demo.model.Ticket;
  *
  * @author Antonymz
  */
-public class UpdateStatus extends HttpServlet {
+public class DeleteTicket extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,19 +36,19 @@ public class UpdateStatus extends HttpServlet {
         String code = "";
         String alert = "";
         String ticket_message = "";
-        String ticket_status = request.getParameter("status");
         String ticket_id = request.getParameter("id");
-        if (ticket_id != null && ticket_status != null) {
-            if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
-                ticket_message = "Update complete!";
+        if (ticket_id != null) {
+            if (Ticket.delete(Integer.parseInt(ticket_id))) {
+                ticket_message = "Delete complete!";
                 code = "success";
                 alert = "Success!";
             } else {
-                ticket_message = "Update incomplete!";
+                ticket_message = "Delete incomplete!";
                 code = "warning";
                 alert = "Warning!";
             }
         }
+        
         request.setAttribute("message", ticket_message);
         request.setAttribute("code", code);
         request.setAttribute("alert", alert);
@@ -57,6 +57,7 @@ public class UpdateStatus extends HttpServlet {
 
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
