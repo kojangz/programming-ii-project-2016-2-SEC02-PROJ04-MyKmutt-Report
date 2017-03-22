@@ -19,9 +19,22 @@
             .header{
                 background-color:#F8F8F8;
                 color:#333;
-                padding-top: 20px;
+                padding-bottom: 20px;
                 padding-left:30px;
             } 
+            .panel-body {
+                display:block;
+                width:100%;
+                word-wrap:break-word;
+                padding-bottom: 5%;
+            }
+            .container{
+                margin-bottom: 4%;
+            }
+            .credit{
+                padding-left: 100px;
+                padding-top: 20px;
+            }
         </style>
         <div class="container">
             <h1>Detail</h1>
@@ -29,9 +42,14 @@
                 <%
                     Ticket t = (Ticket)request.getAttribute("ticket");
                 %>
-                <div class="panel-heading"> Title </div>                               
+                <div class="panel-heading"> <h3> <%=t.getName()%> </h3></div>                               
                 <div class="panel-body">              
-                            <%=t.getDesc()%>                     
+                            <%=t.getDesc()%>  
+                            <br>
+                            <br>
+                            <p> Location : <%=t.getPlace().getName()%> </p>
+                            <p> Status : <%=t.getStatusName()%> </p>
+                            
                 </div>
             </div>
         </div>
@@ -39,7 +57,7 @@
     </detail>
 </body>
 <footer class="footer">
-        <div class="container">
+        <div class="credit">
         <p class="text-muted">Written by My KMUTT-Report</p>
     </div>
 </footer>
