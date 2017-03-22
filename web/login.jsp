@@ -56,7 +56,7 @@
             <div class="button">
                 <p>
                     <input type="submit" class="btn btn-primary btn-lg active" value="Log in"></input>
-                    <a href="Register.jsp"><button type="button" class="btn btn-primary btn-lg active">Register</button></a>
+                    <a href="Register"><button type="button" class="btn btn-primary btn-lg active">Register</button></a>
                 </p>
                 </form>
             </div>
