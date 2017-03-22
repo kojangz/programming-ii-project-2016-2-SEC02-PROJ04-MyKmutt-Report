@@ -33,8 +33,6 @@ public class UpdateStatus extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String target = "/UpdateStatus.jsp";
-        List<Ticket> tickets = Ticket.getAllTickets();
-        request.setAttribute("tickets", tickets);
         String code = "";
         String alert = "";
         String ticket_message = "";
@@ -54,6 +52,8 @@ public class UpdateStatus extends HttpServlet {
         request.setAttribute("message", ticket_message);
         request.setAttribute("code", code);
         request.setAttribute("alert", alert);
+        List<Ticket> tickets = Ticket.getAllTickets();
+        request.setAttribute("tickets", tickets);
 
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
