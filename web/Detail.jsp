@@ -15,7 +15,7 @@
         <title>Detail</title>
     </head>
     <body>
-             <style>
+        <style>
             .header{
                 background-color:#F8F8F8;
                 color:#333;
@@ -27,20 +27,20 @@
             <h1>Detail</h1>
             <div class="panel panel-default">
                 <%
-                     Ticket t = (Ticket)request.getAttribute("ticket");
-                    %>
+                    Ticket t = (Ticket)request.getAttribute("ticket");
+                %>
                 <div class="panel-heading"> Title </div>                               
-                <div class="panel-body">                  
-                    <%=t.getDesc()%>
+                <div class="panel-body">              
+                            <%=t.getDesc()%>                     
                 </div>
             </div>
         </div>
 
-        </detail>
+    </detail>
 </body>
 <footer class="footer">
         <div class="container">
-            <p class="text-muted">Written by My KMUTT-Report</p>
-        </div>
+        <p class="text-muted">Written by My KMUTT-Report</p>
+    </div>
 </footer>
 </html>
