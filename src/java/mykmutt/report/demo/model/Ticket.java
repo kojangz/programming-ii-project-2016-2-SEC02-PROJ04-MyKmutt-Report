@@ -196,6 +196,7 @@ public class Ticket {
         }
         return t;
     }
+
     public static boolean delete(int ticket_id) {
         try {
             Connection conn = ConnectionBuilder.getConnection();
@@ -209,5 +210,17 @@ public class Ticket {
             System.err.println(ex);
         }
         return false;
+
+    }
+
+    public String getStatusName() {
+        if (status == 0) {
+            return "Received";
+        } else if (status == 1) {
+            return "On going";
+        } else if (status == 2) {
+            return "Finished";
+        }
+        return "";
     }
 }
