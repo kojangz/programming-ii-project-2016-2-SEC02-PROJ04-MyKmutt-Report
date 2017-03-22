@@ -45,7 +45,7 @@ public class Ticket {
         this.place = place;
         this.status = status;
     }
-    
+
     public Place getPlace() {
         return place;
     }
@@ -147,11 +147,10 @@ public class Ticket {
         }
         return false;
     }
-    
+
 //    public static void main(String[] args) {
 //        System.out.println(Ticket.getAllTickets());
 //    }
-    
     @Override
     public String toString() {
         return "Ticket{" + "id=" + id + ", name=" + name + ", desc=" + desc + ", place=" + place + '}';
@@ -164,10 +163,11 @@ public class Ticket {
     public void setStatus(int status) {
         this.status = status;
     }
-    public static boolean update(int ticket_id,int ticket_status){
+
+    public static boolean update(int ticket_id, int ticket_status) {
         try {
             Connection conn = ConnectionBuilder.getConnection();
-            String sqlCmd = "UPDATE ticket SET ticket_status = "+ticket_status+" WHERE ticket_id = "+ticket_id;
+            String sqlCmd = "UPDATE ticket SET ticket_status = " + ticket_status + " WHERE ticket_id = " + ticket_id;
             PreparedStatement pstm = conn.prepareStatement(sqlCmd);
             int result = pstm.executeUpdate();
             if (result != 0) {
@@ -178,4 +178,23 @@ public class Ticket {
         }
         return false;
     }
+
+    public static Ticket getTicket(int ticket_id) {
+        Ticket t = null;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement stmt = conn.createStatement();
+            String sqlCmd = "SELECT * FROM ticket WHERE ticket_id = " + ticket_id;
+            ResultSet rs = stmt.executeQuery(sqlCmd);
+            while (rs.next()) {
+                t = new Ticket();
+                ORM(t, rs);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return t;
+    }
+  
 }

@@ -12,6 +12,10 @@
         <servlet-name>UpdateStatus</servlet-name>
         <servlet-class>mykmutt.report.demo.servlet.UpdateStatus</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Detail</servlet-name>
+        <servlet-class>mykmutt.report.demo.servlet.Detail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListTickets</servlet-name>
         <url-pattern>/ListTickets</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>UpdateStatus</servlet-name>
         <url-pattern>/UpdateStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Detail</servlet-name>
+        <url-pattern>/Detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
