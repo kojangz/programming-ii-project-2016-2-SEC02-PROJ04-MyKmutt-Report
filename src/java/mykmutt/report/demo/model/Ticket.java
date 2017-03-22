@@ -196,5 +196,18 @@ public class Ticket {
         }
         return t;
     }
-  
+    public static boolean delete(int ticket_id) {
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            String sqlCmd = "DELETE FROM ticket WHERE ticket_id = " + ticket_id;
+            PreparedStatement pstm = conn.prepareStatement(sqlCmd);
+            int result = pstm.executeUpdate();
+            if (result != 0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false;
+    }
 }

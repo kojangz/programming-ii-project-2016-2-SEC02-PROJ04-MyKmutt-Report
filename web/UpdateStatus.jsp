@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ListTickets
-    Created on : Feb 6, 2017, 11:36:55 PM
-    Author     : Koichi
---%>
 
 <%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page import="java.util.List"%>
@@ -102,7 +97,7 @@
                             <%=t.getPlace().getName()%>
                         </td>
                         <td>
-                            <form action="UpdateStatus" method="get">
+                            <form action="UpdateStatus" method="post">
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <input type="hidden" name="id" value="<%=t.getId()%>">
@@ -115,6 +110,12 @@
                                         
                                     </span>                                    
                                         <input class="btn btn-default" type="submit" value="Submit">                                 
+                                </div>
+                            </form>
+                            <form action="DeleteTicket" method="post">
+                                <div>
+                                    <input type="hidden" name="id" value="<%=t.getId()%>">
+                                    <input type="Submit" value="Delete">
                                 </div>
                             </form>
 

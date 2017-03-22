@@ -16,6 +16,10 @@
         <servlet-name>Detail</servlet-name>
         <servlet-class>mykmutt.report.demo.servlet.Detail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteTicket</servlet-name>
+        <servlet-class>mykmutt.report.demo.servlet.DeleteTicket</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListTickets</servlet-name>
         <url-pattern>/ListTickets</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>Detail</servlet-name>
         <url-pattern>/Detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteTicket</servlet-name>
+        <url-pattern>/DeleteTicket</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
