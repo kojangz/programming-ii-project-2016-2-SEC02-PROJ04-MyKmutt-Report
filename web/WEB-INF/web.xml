@@ -20,6 +20,18 @@
         <servlet-name>DeleteTicket</servlet-name>
         <servlet-class>mykmutt.report.demo.servlet.DeleteTicket</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>mykmutt.report.demo.servlet.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>mykmutt.report.demo.servlet.Home</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>mykmutt.report.demo.servlet.Register</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListTickets</servlet-name>
         <url-pattern>/ListTickets</url-pattern>
@@ -40,9 +52,24 @@
         <servlet-name>DeleteTicket</servlet-name>
         <url-pattern>/DeleteTicket</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
