@@ -73,7 +73,7 @@
                         <th>Ticket Title</th>
                         <th>Detail</th>
                         <th>Place</th>
-                        <th>Update</th>
+                        <th>Update & Delete</th>
 
                     </tr>
                 </thead>
@@ -91,64 +91,62 @@
                             } else {
                                 out.print(t.getDesc());
                             }
-                        %></a>
+                                %></a>
                         </td>
                         <td>
                             <%=t.getPlace().getName()%>
                         </td>
                         <td>
-                            <form action="UpdateStatus" method="post">
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <input type="hidden" name="id" value="<%=t.getId()%>">
-                                        <select name="status" id="status" class="form-control">
+                
+                    <div class="from-group">
+                        <form action="UpdateStatus" method="post">  
+                            
+                            <input type="hidden" name="id" value="<%=t.getId()%>">
+                            <select name="status" id="status" class="form-control">
+                                <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
+                                <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
+                                <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
+                            </select>                             
+                            &nbsp;
+                            <button style="float: right" type='submit'><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                           
+                        </form>
+                    </div>
+                    
+                <form action="DeleteTicket" method="post">       
+                    <button style="float: right" type='submit'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                    <input type="hidden" name="id" value="<%=t.getId()%>">     
+                </form>
 
-                                            <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
-                                            <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
-                                            <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
-                                        </select>
-                                        
-                                    </span>                                    
-                                        <input class="btn btn-default" type="submit" value="Submit">                                 
-                                </div>
-                            </form>
-                            <form action="DeleteTicket" method="post">
-                                <div>
-                                    <input type="hidden" name="id" value="<%=t.getId()%>">
-                                    <input type="Submit" value="Delete">
-                                </div>
-                            </form>
 
-                        </td>
 
-                    </tr>
-                    <%
-                        }
-                    %>
-                </tbody>
+    </td>
+</tr>
+<%
+    }
+%>
+</tbody>
+</table>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Written by My KMUTT-Report</p>
+    </div>
+</footer>
 
-            </table>
-        </div>
-
-        <footer class="footer">
-            <div class="container">
-                <p class="text-muted">Written by My KMUTT-Report</p>
-            </div>
-        </footer>
-
-        <!-- Bootstrap core JavaScript
+<!-- Bootstrap core JavaScript
 ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
 
-        <script type="text/javascript" class="init">
-            $(document).ready(function () {
-                $('#example').DataTable();
-            });
-        </script>
-    </body>
+<script type="text/javascript" class="init">
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+</body>
 </html>
