@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package mykmutt.report.demo.model;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,11 +13,13 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mykmutt.report.demo.datasource.ConnectionBuilder;
+
 /**
  *
  * @author Antonymz
  */
 public class Member {
+
     private int id;
     private String name;
     private String surname;
@@ -42,7 +45,7 @@ public class Member {
         this.password = password;
         this.position = position;
     }
-    
+
     public Member(int id, String name, String surname, long stdId, String gender, String faculty, String email, String username, String password, int position) {
         this.id = id;
         this.name = name;
@@ -135,7 +138,7 @@ public class Member {
     public void setPosition(int position) {
         this.position = position;
     }
-    
+
     public boolean addMember() {
         try {
             Connection conn = ConnectionBuilder.getConnection();
@@ -160,6 +163,7 @@ public class Member {
         }
         return false;
     }
+
     private static void ORM(Member m, ResultSet rs) {
         try {
             m.setId(rs.getInt("member_id"));
@@ -176,7 +180,7 @@ public class Member {
             Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static Member getMember(int member_id) {
         Member m = null;
         try {
@@ -194,13 +198,20 @@ public class Member {
         }
         return m;
     }
-    
 
-    
+    public String getGenderName() {
+        if(gender.equals("F")){
+            return "Female";
+        }
+        else if(gender.equals("M")){
+            return "Men";
+        }
+        return "";
+    }
 
     @Override
     public String toString() {
         return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", stdId=" + stdId + ", gender=" + gender + ", faculty=" + faculty + ", email=" + email + ", username=" + username + ", password=" + password + ", position=" + position + '}';
     }
-    
+
 }

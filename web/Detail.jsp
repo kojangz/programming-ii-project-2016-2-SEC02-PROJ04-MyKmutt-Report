@@ -67,7 +67,7 @@
                             <p> Name : <%=m.getName()%></p>
                             <p> Surname : <%=m.getSurname()%></p>
                             <p> Student ID : <%=m.getStdId()%></p>
-                            <p> Gender : <%=m.getGender()%></p>
+                            <p> Gender : <%=m.getGenderName()%></p>
                             <p> Faculty : <%=m.getFaculty()%></p>
                             <p> Email : <%=m.getEmail()%></p>
                         </div>
