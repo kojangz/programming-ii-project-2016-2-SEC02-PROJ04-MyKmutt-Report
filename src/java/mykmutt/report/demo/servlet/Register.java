@@ -7,10 +7,13 @@ package mykmutt.report.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mykmutt.report.demo.model.Place;
+import mykmutt.report.demo.model.Ticket;
 
 /**
  *
@@ -31,6 +34,31 @@ public class Register extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String target = "/Register.jsp";
+         if (request.getParameter("submit") != null) {
+            String name = request.getParameter("name");
+            String desc = request.getParameter("desc");
+            int place = Integer.parseInt(request.getParameter("place"));
+            Ticket t = new Ticket(place, name, desc, Place.getPlaceById(place));
+            String code = null;
+            String alert = null;
+            String message = null;
+            if (t.addTicket()) {
+                code = "success";
+                alert = "Success!";
+                message = "Ticket is now opened.";
+            } else {
+                code = "warning";
+                alert = "Warning!";
+                message = "Cannot open the ticket.";
+            }
+            request.setAttribute("code", code);
+            request.setAttribute("alert", alert);
+            request.setAttribute("message", message);
+        }
+        
+        List<Place> places = Place.getAllPlaces();
+        request.setAttribute("places", places);
+        
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
