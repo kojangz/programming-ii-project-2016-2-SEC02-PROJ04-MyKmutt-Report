@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package mykmutt.report.demo.model;
-/*
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import mykmutt.report.demo.datasource.ConnectionBuilder;
-*/
 /**
  *
  * @author Antonymz
@@ -18,8 +16,8 @@ public class Member {
     private int id;
     private String name;
     private String surname;
-    private long stdid;
-    private char gender;
+    private long stdId;
+    private String gender;
     private String faculty;
     private String email;
     private String username;
@@ -29,10 +27,10 @@ public class Member {
     public Member() {
     }
 
-    public Member(String name, String surname, long stdid, char gender, String faculty, String email, String username, String password, int position) {
+    public Member(String name, String surname, long stdId, String gender, String faculty, String email, String username, String password, int position) {
         this.name = name;
         this.surname = surname;
-        this.stdid = stdid;
+        this.stdId = stdId;
         this.gender = gender;
         this.faculty = faculty;
         this.email = email;
@@ -41,11 +39,11 @@ public class Member {
         this.position = position;
     }
     
-    public Member(int id, String name, String surname, long stdid, char gender, String faculty, String email, String username, String password, int position) {
+    public Member(int id, String name, String surname, long stdId, String gender, String faculty, String email, String username, String password, int position) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.stdid = stdid;
+        this.stdId = stdId;
         this.gender = gender;
         this.faculty = faculty;
         this.email = email;
@@ -78,19 +76,19 @@ public class Member {
         this.surname = surname;
     }
 
-    public long getStdid() {
-        return stdid;
+    public long getStdId() {
+        return stdId;
     }
 
-    public void setStdid(long stdid) {
-        this.stdid = stdid;
+    public void setStdId(long stdId) {
+        this.stdId = stdId;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -134,17 +132,16 @@ public class Member {
         this.position = position;
     }
     
-    
-    /*public boolean memberRegister() {
+    public boolean addMember() {
         try {
             Connection conn = ConnectionBuilder.getConnection();
-            String sqlCmd = "INSERT INTO member(member_name, member_surname, member_stdid, member_gender, member_faculty, member_email,"
+            String sqlCmd = "INSERT INTO member(member_name, member_surname, member_stdId, member_gender, member_faculty, member_email,"
                     + " member_username, member_password, member_position) VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(sqlCmd);
             pstm.setString(1, name);
             pstm.setString(2, surname);
-            pstm.setLong(3, stdid);
-            pstm.setLong(4, gender);
+            pstm.setLong(3, stdId);
+            pstm.setString(4, gender);
             pstm.setString(5, faculty);
             pstm.setString(6, email);
             pstm.setString(7, username);
@@ -158,12 +155,11 @@ public class Member {
             System.err.println(ex);
         }
         return false;
-    }*/
+    }
 
     @Override
     public String toString() {
-        return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", stdid=" + stdid + ", gender=" + gender + ", faculty=" + faculty + ", email=" + email + ", username=" + username + ", password=" + password + ", position=" + position + '}';
+        return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", stdId=" + stdId + ", gender=" + gender + ", faculty=" + faculty + ", email=" + email + ", username=" + username + ", password=" + password + ", position=" + position + '}';
     }
-    
     
 }
