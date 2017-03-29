@@ -79,7 +79,7 @@
                     <tr>
                         <td><%=count++%></td>
                         <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
-                        <td><%=t.getPlace().getName()%></td>
+                        <td><%=t.getPlace()%></td>
                         <td><%=t.getStatusName()%> </td>
                     </tr>
                     <%

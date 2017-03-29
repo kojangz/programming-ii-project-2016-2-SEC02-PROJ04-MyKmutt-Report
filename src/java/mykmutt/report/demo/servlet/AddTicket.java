@@ -11,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import mykmutt.report.demo.model.Place;
 import mykmutt.report.demo.model.Ticket;
 
 /**
@@ -38,8 +37,8 @@ public class AddTicket extends HttpServlet {
         if (request.getParameter("submit") != null) {
             String name = request.getParameter("name");
             String desc = request.getParameter("desc");
-            int place = Integer.parseInt(request.getParameter("place"));
-            Ticket t = new Ticket(place, name, desc, Place.getPlaceById(place));
+            String place = request.getParameter("place");
+            Ticket t = new Ticket(name, desc, place);
             String code = null;
             String alert = null;
             String message = null;
@@ -57,8 +56,6 @@ public class AddTicket extends HttpServlet {
             request.setAttribute("message", message);
         }
         
-        List<Place> places = Place.getAllPlaces();
-        request.setAttribute("places", places);
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 

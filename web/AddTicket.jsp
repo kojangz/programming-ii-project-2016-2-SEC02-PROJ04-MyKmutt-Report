@@ -4,7 +4,6 @@
     Author     : Koichi
 --%>
 
-<%@page import="mykmutt.report.demo.model.Place"%>
 <%@page import="java.util.List"%>
 <%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -80,17 +79,8 @@
                     <textarea name="desc" class="form-control" id="desc" rows="3" placeholder="Description"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="place">Place</label>
-                    <select name="place" id="place" class="form-control">
-                        <%
-                            List<Place> places = (List) request.getAttribute("places");
-                            for (Place p : places) {
-                        %>
-                        <option value="<%=p.getId()%>"><%=p.getName()%></option>
-                        <%
-                            }
-                        %>
-                    </select>
+                    <label for="place">Location</label>
+                    <input name="place" type="text" class="form-control" id="place" placeholder="Location">
                 </div>
                 <button type="submit" name="submit" class="btn btn-default">Submit</button>
             </form>

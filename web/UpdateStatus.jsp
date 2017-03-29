@@ -19,7 +19,7 @@
 
         <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
         <!-- include a theme, can be included into the core instead of 2 separate files -->
-        <link rel="stylesheet" href="PATH_TO_FILE/alertify-bootstrap.css" />
+       
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -97,7 +97,7 @@
                         </td>
                         <td>    
                             <center>
-                                <form action="UpdateStatus" method="post">  
+                                <form action="UpdateStatus" method="post" onsubmit="return confirm('You really want to change status?');">  
                                     <input type="hidden" name="id" value="<%=t.getId()%>">
                                     <select  name="status" id="status" class="form-control">
                                         <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>

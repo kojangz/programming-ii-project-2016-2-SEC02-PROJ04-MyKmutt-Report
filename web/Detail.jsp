@@ -41,14 +41,16 @@
             <div class="panel panel-default">
                 <%
                     Ticket t = (Ticket)request.getAttribute("ticket");
+                    
                 %>
                 <div class="panel-heading"> <h3> <%=t.getName()%> </h3></div>                               
                 <div class="panel-body">              
                             <%=t.getDesc()%>  
                             <br>
                             <br>
-                            <p> Location : <%=t.getPlace().getName()%> </p>
+                            <p> Location : <%=t.getPlace()%> </p>
                             <p> Status : <%=t.getStatusName()%> </p>
+                            <p> User : <%=t.getUserId()%></p>
                             
                 </div>
             </div>

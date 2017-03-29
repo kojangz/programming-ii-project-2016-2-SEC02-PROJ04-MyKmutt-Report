@@ -25,20 +25,22 @@ public class Ticket {
     private int id;
     private String name;
     private String desc;
-    private Place place;
+    private String place;
     private int status;
+    private int userId;
 
     public Ticket() {
     }
 
-    public Ticket(int id, String name, String desc, Place place) {
-        this.id = id;
+    public Ticket(String name, String desc, String place) {
+        this.id = 0;
         this.name = name;
         this.desc = desc;
         this.place = place;
+        this.status = 0;
     }
 
-    public Ticket(int id, String name, String desc, Place place, int status) {
+    public Ticket(int id, String name, String desc, String place, int status) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -46,11 +48,19 @@ public class Ticket {
         this.status = status;
     }
 
-    public Place getPlace() {
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    
+    public String getPlace() {
         return place;
     }
 
-    public void setPlace(Place place) {
+    public void setPlace(String place) {
         this.place = place;
     }
 
@@ -101,10 +111,11 @@ public class Ticket {
             t.setId(rs.getInt("ticket_id"));
             t.setName(rs.getString("ticket_name"));
             t.setDesc(rs.getString("ticket_desc"));
-            t.setPlace(Place.getPlaceById(rs.getInt("ticket_place")));
+            t.setPlace(rs.getString("ticket_place"));
             t.setStatus(rs.getInt("ticket_status"));
+            t.setUserId(rs.getInt("ticket_user"));
         } catch (SQLException ex) {
-            Logger.getLogger(Place.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -137,7 +148,7 @@ public class Ticket {
             PreparedStatement pstm = conn.prepareStatement(sqlCmd);
             pstm.setString(1, name);
             pstm.setString(2, desc);
-            pstm.setInt(3, place.getId());
+            pstm.setString(3, place);
             int result = pstm.executeUpdate();
             if (result != 0) {
                 return true;
