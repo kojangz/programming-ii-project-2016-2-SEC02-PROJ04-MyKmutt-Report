@@ -93,7 +93,7 @@
                         <td><%=t.getId()%></td>
                         <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
                         <td>
-                            <%=t.getPlace().getName()%>
+                            <%=t.getPlace()%>
                         </td>
                         <td>    
                             <center>
