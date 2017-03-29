@@ -22,10 +22,10 @@ public class ConnectionBuilder {
             Class.forName("com.mysql.jdbc.Driver");
             Properties property = new Properties();
             property.put("user", "mykmutt_report");
-            property.put("password", "mykmutt");
+            property.put("password", "4AxMiA8szfCuXRvB!");
             property.put("useEncoding", "true");
             property.put("characterEncoding", "UTF-8");
-            con = DriverManager.getConnection("jdbc:mysql://kojangz.me:3306/mykmutt_report?useUnicode=yes&amp;characterEncoding=utf8", property);
+            con = DriverManager.getConnection("jdbc:mysql://mykmutt.sit.kmutt.ac.th:3306/mykmutt_report?useUnicode=yes&amp;characterEncoding=utf8", property);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnectionBuilder.class.getName()).log(Level.SEVERE, null, ex);
         }
