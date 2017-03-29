@@ -78,9 +78,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Ticket Title</th>
-                        <th>Detail</th>
-                        <th>Place</th>
+                        <th>Ticket Title</th>          
+                        <th>Location</th>
                         <th width="200px">Update & Delete</th>
 
                     </tr>
@@ -92,15 +91,7 @@
                     %>
                     <tr>
                         <td><%=t.getId()%></td>
-                        <td><%=t.getName()%></td>
-                        <td><a href = "Detail?id=<%=t.getId()%>"><%
-                            if (t.getDesc().length() > 100) {
-                                out.print(t.getDesc().substring(0, 100) + "...");
-                            } else {
-                                out.print(t.getDesc());
-                            }
-                                %></a>
-                        </td>
+                        <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
                         <td>
                             <%=t.getPlace().getName()%>
                         </td>

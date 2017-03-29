@@ -64,18 +64,23 @@
             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>No.</th>
                         <th>Ticket Title</th>
+                        <th>Location</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         List<Ticket> tickets = (List) request.getAttribute("tickets");
+                        int count = 1;
                         for (Ticket t : tickets) {
                     %>
                     <tr>
-                        <td><%=t.getId()%></td>
-                        <td><%=t.getName()%></td>
+                        <td><%=count++%></td>
+                        <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
+                        <td><%=t.getPlace().getName()%></td>
+                        <td><%=t.getStatusName()%> </td>
                     </tr>
                     <%
                         }
