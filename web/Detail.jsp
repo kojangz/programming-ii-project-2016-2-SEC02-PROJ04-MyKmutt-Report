@@ -4,6 +4,7 @@
     Author     : LENOVO
 --%>
 
+<%@page import="mykmutt.report.demo.model.Member"%>
 <%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,28 +39,47 @@
         </style>
         <div class="container">
             <h1>Detail</h1>
-            <div class="panel panel-default">
-                <%
-                    Ticket t = (Ticket)request.getAttribute("ticket");
-                    
-                %>
-                <div class="panel-heading"> <h3> <%=t.getName()%> </h3></div>                               
-                <div class="panel-body">              
+
+            <%
+                Ticket t = (Ticket) request.getAttribute("ticket");
+                Member m = Member.getMember(t.getUserId());
+
+            %>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> <h3> <%=t.getName()%> </h3></div>                               
+                        <div class="panel-body">              
                             <%=t.getDesc()%>  
                             <br>
                             <br>
                             <p> Location : <%=t.getPlace()%> </p>
                             <p> Status : <%=t.getStatusName()%> </p>
-                            <p> User : <%=t.getUserId()%></p>
-                            
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4"><div class="panel panel-default">
+                        <div class="panel-heading"> <h3> User Info. </h3></div>                               
+                        <div class="panel-body"> 
+                            <p> Username : <%=m.getUsername()%></p>
+                            <p> Name : <%=m.getName()%></p>
+                            <p> Surname : <%=m.getSurname()%></p>
+                            <p> Student ID : <%=m.getStdId()%></p>
+                            <p> Gender : <%=m.getGender()%></p>
+                            <p> Faculty : <%=m.getFaculty()%></p>
+                            <p> Email : <%=m.getEmail()%></p>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
-        </div>
-
-    </detail>
+        </detail>
 </body>
 <footer class="footer">
-        <div class="credit">
+    <div class="credit">
         <p class="text-muted">Written by My KMUTT-Report</p>
     </div>
 </footer>

@@ -6,7 +6,11 @@
 package mykmutt.report.demo.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mykmutt.report.demo.datasource.ConnectionBuilder;
 /**
  *
@@ -156,6 +160,43 @@ public class Member {
         }
         return false;
     }
+    private static void ORM(Member m, ResultSet rs) {
+        try {
+            m.setId(rs.getInt("member_id"));
+            m.setName(rs.getString("member_name"));
+            m.setSurname(rs.getString("member_surname"));
+            m.setFaculty(rs.getString("member_faculty"));
+            m.setEmail(rs.getString("member_email"));
+            m.setUsername(rs.getString("member_username"));
+            m.setPassword(rs.getString("member_password"));
+            m.setStdId(rs.getLong("member_stdid"));
+            m.setGender(rs.getString("member_gender"));
+            m.setPosition(rs.getInt("member_position"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static Member getMember(int member_id) {
+        Member m = null;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement stmt = conn.createStatement();
+            String sqlCmd = "SELECT * FROM member WHERE member_id = " + member_id;
+            ResultSet rs = stmt.executeQuery(sqlCmd);
+            while (rs.next()) {
+                m = new Member();
+                ORM(m, rs);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return m;
+    }
+    
+
+    
 
     @Override
     public String toString() {
