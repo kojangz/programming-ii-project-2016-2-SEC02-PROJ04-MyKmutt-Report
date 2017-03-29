@@ -18,6 +18,9 @@
         <link href="css/sticky-footer-navbar.css" rel="stylesheet">
 
         <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <!-- include a theme, can be included into the core instead of 2 separate files -->
+        <link rel="stylesheet" href="PATH_TO_FILE/alertify-bootstrap.css" />
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,6 +29,11 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>My KMUTT - Report - Update Ticket List</title>
+        <style>
+            form{
+                display: inline-block;
+            }
+        </style>
     </head>
     <body>
 
@@ -73,7 +81,7 @@
                         <th>Ticket Title</th>
                         <th>Detail</th>
                         <th>Place</th>
-                        <th>Update & Delete</th>
+                        <th width="200px">Update & Delete</th>
 
                     </tr>
                 </thead>
@@ -96,57 +104,51 @@
                         <td>
                             <%=t.getPlace().getName()%>
                         </td>
-                        <td>
-                
-                    <div class="from-group">
-                        <form action="UpdateStatus" method="post">  
-                            
-                            <input type="hidden" name="id" value="<%=t.getId()%>">
-                            <select name="status" id="status" class="form-control">
-                                <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
-                                <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
-                                <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
-                            </select>                             
-                            &nbsp;
-                            <button style="float: right" type='submit'><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-                           
-                        </form>
-                    </div>
-                    
-                <form action="DeleteTicket" method="post">       
-                    <button style="float: right" type='submit'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-                    <input type="hidden" name="id" value="<%=t.getId()%>">     
-                </form>
+                        <td>    
+                            <center>
+                                <form action="UpdateStatus" method="post">  
+                                    <input type="hidden" name="id" value="<%=t.getId()%>">
+                                    <select  name="status" id="status" class="form-control">
+                                        <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
+                                        <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
+                                        <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
+                                    </select>                      
+                                    <button type='submit'><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                                </form>
+                                <form action="DeleteTicket" method="post" onsubmit="return confirm('You really want to delete?');">       
+                                    <button type='submit'><span class="glyphicon glyphicon-trash"  ></span></button>
+                                    <input type="hidden" name="id" value="<%=t.getId()%>"> 
+                                </form>  
+                            </center>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </tbody>
+            </table>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">Written by My KMUTT-Report</p>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/jquery.dataTables.min.js"></script>
+        <script src="js/dataTables.bootstrap.min.js"></script>
+
+        <script type="text/javascript" class="init">
+                                    $(document).ready(function () {
+                                        $('#example').DataTable();
+                                    });
+        </script>
 
 
-
-    </td>
-</tr>
-<%
-    }
-%>
-</tbody>
-</table>
-</div>
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Written by My KMUTT-Report</p>
-    </div>
-</footer>
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script src="js/jquery.dataTables.min.js"></script>
-<script src="js/dataTables.bootstrap.min.js"></script>
-
-<script type="text/javascript" class="init">
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-</script>
-</body>
+    </body>
 </html>
