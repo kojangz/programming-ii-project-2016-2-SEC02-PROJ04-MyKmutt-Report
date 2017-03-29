@@ -30,7 +30,18 @@
                     <h2><font size="200"> Register </font></h2>
                 </article>
             </div>
-            <form action="Register" method="get">
+            
+            <%
+                if (request.getAttribute("code") != null) {
+            %>
+            <div class="alert alert-<%=(String)request.getAttribute("code")%>">
+                <strong><%=(String)request.getAttribute("alert")%></strong> <%=(String)request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
+            
+            <form action="Register" method="POST">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
