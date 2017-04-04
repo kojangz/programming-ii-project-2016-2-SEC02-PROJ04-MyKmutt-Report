@@ -91,7 +91,7 @@
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted">Written by Koichi Uemura</p>
+                <p class="text-muted">Written by My KMUTT - Report</p>
             </div>
         </footer>
 
