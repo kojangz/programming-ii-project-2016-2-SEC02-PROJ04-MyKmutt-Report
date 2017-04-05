@@ -43,36 +43,47 @@
                     <h2><font size="200">LOG IN </font></h2>
                 </article>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <form action="" method="get">
+
+            <%
+                if (request.getAttribute("code") != null) {
+            %>
+            <div class="alert alert-<%=(String) request.getAttribute("code")%>">
+                <strong><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
+
+            <form action="Login" method="get">
+                <div class="row">
+                    <div class="col-md-4">
                         <br>
                         <div class="form-group">
                             <label for="exampleUsername">Username</label>
-                            <input type="Username" class="form-control" id="exampleUsername" name="username" placeholder="Enter Username">
+                            <input type="text" class="form-control" id="exampleUsername" name="username" placeholder="Enter Username">
                         </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="examplePassword">Password</label>
-                        <input type="Password" class="form-control" id="examplePassword" name="password" placeholder="Enter Password">
                     </div>
                 </div>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="remember"> Remember me
-                </label>
-            </div>
-            <div class="button">
-                <p>
-                    <input type="submit" class="btn btn-primary btn-lg active" value="Log in"></input>
-                    <a href="Register"><button type="button" class="btn btn-primary btn-lg active">Register</button></a>
-                </p>
-                </form>
-            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="examplePassword">Password</label>
+                            <input type="Password" class="form-control" id="examplePassword" name="password" placeholder="Enter Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                </div>
+                <div class="button">
+                    <p>
+                        <input type="submit" name="submit" class="btn btn-primary btn-lg active" value="Log in"></input>
+                        <a href="Register"><button type="button" class="btn btn-primary btn-lg active">Register</button></a>
+                    </p>
+                </div>
+            </form>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

@@ -200,13 +200,29 @@ public class Member {
     }
 
     public String getGenderName() {
-        if(gender.equals("F")){
+        if (gender.equals("F")) {
             return "Female";
-        }
-        else if(gender.equals("M")){
+        } else if (gender.equals("M")) {
             return "Men";
         }
         return "";
+    }
+
+    public static boolean isMember(String member_username, String member_password) {
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            String sqlCmd = "SELECT * FROM member WHERE member_username = '" + member_username + "' AND member_password = '"
+                    + member_password+"'";
+            PreparedStatement ps = conn.prepareStatement(sqlCmd);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
 
     @Override
