@@ -13,21 +13,30 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <style>
             .header{
-                background-color: #000000;
-                padding-top: 90px ;
+                background-color: #E0E0E0;
+                padding-top: 40px ;
                 padding-left: 30px;
-                color: #FFFFFF;
+                padding-right: 30px;
+                padding-bottom: 40px;
+                color: #000000;
             }
             .container{
-                background-color:#FFD700;
+                position: fixed;
+                background-color:#CCE5FF no-repeat;
+                top: 0;
+                left: 0;
+                min-width: 100%;
+                min-height: 100%;
+                padding-left: 30px;
+                padding-right: 30px;
             }
         </style>
     </head>
     <body>
-        <div class="container">
+        <div class="container">            
             <div class="header">
                 <article>
-                    <h2><font size="200"> Register </font></h2>
+                    <h2><font size="200"> REGISTER </font></h2>
                 </article>
             </div>
             
@@ -40,16 +49,16 @@
             <%
                 }
             %>
-            
+            <br>
             <form action="Register" method="POST">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="form-group">
                             <label for="exampleName">Your're name</label>
                             <input type="name" class="form-control" id="exampleName" name="name" placeholder="name">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="form-group">
                             <label for="exampleSurname">Your're surname</label>
                             <input type="surname" class="form-control" id="exampleSurname" name="surname" placeholder="surname">
@@ -57,7 +66,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
 
                         <div class="form-group">
                             <label for="exampleStudentID">Your're student ID</label>

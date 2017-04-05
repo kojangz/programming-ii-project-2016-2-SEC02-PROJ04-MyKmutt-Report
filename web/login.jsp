@@ -9,18 +9,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
         <title>Log in page</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <style>
             .header{
-                background-color: #000000;
-                padding-top: 90px ;
+                background-color: #E0E0E0;
+                padding-top: 40px ;
                 padding-left: 30px;
-                color: #FFFFFF;
+                padding-right: 30px;
+                padding-bottom: 40px;
+                color: #000000;
             }
             .container{
-                background-color:#FFD700;
-
+                position: fixed;
+                background-color:#CCE5FF no-repeat;
+                top: 0;
+                left: 0;
+                min-width: 100%;
+                min-height: 100%;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            .row{
+                font-size: 20px;
             }
         </style>
     </head>
@@ -28,12 +40,13 @@
         <div class="container">
             <div class="header">
                 <article>
-                    <h2><font size="200">Log in</font></h2>
+                    <h2><font size="200">LOG IN </font></h2>
                 </article>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <form action="" method="get">
+                        <br>
                         <div class="form-group">
                             <label for="exampleUsername">Username</label>
                             <input type="Username" class="form-control" id="exampleUsername" name="username" placeholder="Enter Username">
@@ -41,7 +54,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="examplePassword">Password</label>
                         <input type="Password" class="form-control" id="examplePassword" name="password" placeholder="Enter Password">
