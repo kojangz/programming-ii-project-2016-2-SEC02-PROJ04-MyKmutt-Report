@@ -38,7 +38,7 @@ public class Home extends HttpServlet {
         String message = null;
         HttpSession session = request.getSession(false);
         if (session != null) {
-            if (session.getAttribute("member") != null) {
+            if (session.getAttribute("member") != null && session.getAttribute("isLoged").equals("yes")) {
                 String member = (String) session.getAttribute("member");
                 target = "/Home.jsp";
                 code = "Success";
