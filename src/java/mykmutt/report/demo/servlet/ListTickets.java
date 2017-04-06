@@ -21,7 +21,7 @@ public class ListTickets extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String target = "/login.jsp";
+        String target = "/ListTickets.jsp";
         String code = null;
         String alert = null;
         String message = null;
@@ -31,11 +31,11 @@ public class ListTickets extends HttpServlet {
             if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
                 List<Ticket> tickets = Ticket.getAllTickets();
                 request.setAttribute("tickets", tickets);
-                target = "/ListTickets.jsp";
             } else {
                 code = "Error";
                 alert = "Error!";
                 message = "Re-Login Pleased.";
+                target = "/login.jsp";
             }
         } else {
             code = "Error";

@@ -33,7 +33,7 @@ public class DeleteTicket extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String target = "/login.jsp";
+        String target = "/UpdateStatus.jsp";
         String code = "";
         String alert = "";
         String ticket_message = "";
@@ -46,7 +46,6 @@ public class DeleteTicket extends HttpServlet {
                         ticket_message = "Delete complete!";
                         code = "success";
                         alert = "Success!";
-                        target = "/UpdateStatus.jsp";
                     } else {
                         ticket_message = "Delete incomplete!";
                         code = "warning";
@@ -57,6 +56,7 @@ public class DeleteTicket extends HttpServlet {
                 code = "Error";
                 alert = "Error!";
                 ticket_message = "Re-Login Pleased.";
+                target = "/login.jsp";
             }
         } else {
             code = "Error";
