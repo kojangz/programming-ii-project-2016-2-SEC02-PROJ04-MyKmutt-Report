@@ -17,12 +17,23 @@
     </head>
     <body>
         <style>
+            html,body{
+                background-color:#F5F5F5;
+            }
             .header{
-                background-color:#F8F8F8;
-                color:#333;
-                padding-bottom: 20px;
-                padding-left:30px;
+                background-color:#FFFFFF;
+                padding-top: 40px ;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 40px;
+                color: #000000;
+                font-family:Cordia New;
+                font-size: 500px;
+                text-align: center;
             } 
+            .panel-heading{
+                background-color:#696969;
+            }
             .panel-body {
                 display:block;
                 width:100%;
@@ -31,20 +42,22 @@
             }
             .container{
                 margin-bottom: 4%;
+                width:900px;
             }
-            .credit{
-                padding-left: 100px;
-                padding-top: 1px;
-            }
+            
         </style>
         <div class="container">
-            <h1>Detail</h1>
+            <div class="header">
+            <h1><font size="600">╔ <b><u>DETAIL OF TICKET</u></b> ╝</font></br>
+                     <font size=70> MY-KMUTT </font>
+                </h1>
 
             <%
                 Ticket t = (Ticket) request.getAttribute("ticket");
                 Member m = Member.getMember(t.getUserId());
 
             %>
+            </div><br>
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel panel-default">
