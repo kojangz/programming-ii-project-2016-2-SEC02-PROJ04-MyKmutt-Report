@@ -7,10 +7,12 @@ package mykmutt.report.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,7 +32,33 @@ public class Home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String target = "/Home.jsp";
+        String target = "/login.jsp";
+        String code = null;
+        String alert = null;
+        String message = null;
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            if (session.getAttribute("member") != null) {
+                String member = (String) session.getAttribute("member");
+                target = "/Home.jsp";
+                code = "Success";
+                alert = "Success!";
+                message = "Loged in";
+                out.print("Hello, " + member + " Welcome to Profile");
+            } else {
+                code = "Error";
+                alert = "Error!";
+                message = "Re-Login Pleased.";
+            }
+        } else {
+            code = "Error";
+            alert = "Error!";
+            message = "Re-Login Pleased.";
+
+        }
+        request.setAttribute("code", code);
+        request.setAttribute("alert", alert);
+        request.setAttribute("message", message);
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 

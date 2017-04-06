@@ -58,10 +58,19 @@
                         <font size=100> MY-KMUTT </font></h2>
                 </article>
             </div><br>
-            <div class="contents">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <form action="" method="get">
+            <%
+                if (request.getAttribute("code") != null) {
+            %>
+            <div class="alert alert-<%=(String) request.getAttribute("code")%>">
+                <strong><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
+            <form action="Login" method="get">
+                <div class="contents">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
                             <br>
                             <div class="form-group">
                                 <label for="exampleUsername">USERNAME</label>
@@ -70,32 +79,32 @@
                                 <input type="Username"  class="form-control" id="exampleUsername" name="username" placeholder="USERNAME">
                                 </font>
                             </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="form-group">
-                            <label for="examplePassword">PASSWORD</label>
-                            <div class="input-group-addon"> ✎ </div>
-                            <font face="Tahoma">
-                            <input type="password" class="form-control" id="examplePassword" name="password" placeholder="PASSWORD">
-                            </font>
                         </div>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember"> <font size="4"> REMEMBER ME CLICK!! </font></input>
-                        </label>
-                    </div>
-                    <div class="button">
-                        <p>
-                            <input type="submit" class="btn btn-default btn-lg active" value="LOG IN"></input>
-                            <a href="Register"><button type="button" class="btn btn-warning btn-lg active">REGISTER</button></a>
-                        </p>
-                        </form>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <label for="examplePassword">PASSWORD</label>
+                                <div class="input-group-addon"> ✎ </div>
+                                <font face="Tahoma">
+                                <input type="password" class="form-control" id="examplePassword" name="password" placeholder="PASSWORD">
+                                </font>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember"> <font size="4"> REMEMBER ME CLICK!! </font></input>
+                            </label>
+                        </div>
+                        <div class="button">
+                            <p>
+                                <input type="submit" name="submit" class="btn btn-default btn-lg active" value="LOG IN"></input>
+                                <a href="Register"><button type="button" class="btn btn-warning btn-lg active">REGISTER</button></a>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
     </body>
