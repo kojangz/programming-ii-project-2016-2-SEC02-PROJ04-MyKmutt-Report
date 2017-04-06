@@ -39,7 +39,7 @@
             </div>
 
             <%
-                if (request.getAttribute("code") != null) {
+                if (request.getAttribute("code") != null) { 
             %>
             <div class="alert alert-<%=(String) request.getAttribute("code")%>">
                 <strong><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
