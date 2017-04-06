@@ -7,6 +7,9 @@ package mykmutt.report.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +31,7 @@ public class Login extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,10 +46,15 @@ public class Login extends HttpServlet {
             String member_username = request.getParameter("username");
             String member_password = request.getParameter("password");
             if (member_username != null && member_password != null) {
-                if (Member.isMember(member_username, member_password)) {          
-                    session.setAttribute("member", member_username);
-                    session.setAttribute("isLoged", "yes");
-                    target = "/Home.jsp";
+                if (Member.isMember(member_username, member_password)) {
+                    try {
+                        String memberId = Member.getIdByUsername(member_username)+"";
+                        session.setAttribute("member_id", memberId);
+                        session.setAttribute("isLoged", "yes");
+                        target = "/Home.jsp";
+                    } catch (SQLException ex) {
+                        System.err.println(ex);
+                    }
                 } else {
                     code = "Error";
                     alert = "Error!";

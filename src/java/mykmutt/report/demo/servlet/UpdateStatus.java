@@ -42,7 +42,7 @@ public class UpdateStatus extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session != null) {
-            if (session.getAttribute("member") != null && session.getAttribute("isLoged").equals("yes")) {
+            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
                 if (ticket_id != null && ticket_status != null) {
                     if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
                         ticket_message = "Update complete!";

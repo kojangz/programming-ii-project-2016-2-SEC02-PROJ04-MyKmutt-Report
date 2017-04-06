@@ -33,36 +33,42 @@ public class AddTicket extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        String target = "/login.jsp";
+        String target = "/AddTicket.jsp";
         String code = null;
         String alert = null;
         String message = null;
         HttpSession session = request.getSession(false);
         if (session != null) {
-            if (session.getAttribute("member") != null && session.getAttribute("isLoged").equals("yes")) {
+            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
+                try{
                 String name = request.getParameter("name");
                 String desc = request.getParameter("desc");
                 String place = request.getParameter("place");
-                Ticket t = new Ticket(name, desc, place);
+                int id = Integer.parseInt((String) session.getAttribute("member_id"));
+                Ticket t = new Ticket(name, desc, place,id);
                 if (t.addTicket()) {
                     code = "success";
                     alert = "Success!";
                     message = "Ticket is now opened.";
-                    target = "/AddTicket.jsp";
                 } else {
                     code = "warning";
                     alert = "Warning!";
                     message = "Cannot open the ticket.";
                 }
+                } catch (Exception ex) {
+                    System.out.println("AddTicket.ex: "+ex);
+                    
+                }
             } else {
                 code = "Error";
                 alert = "Error!";
-                message = "Re-Login Pleased.";
+                message = "Re-Login3 Pleased.";
+                target = "/login.jsp";
             }
         } else {
             code = "Error";
             alert = "Error!";
-            message = "Re-Login Pleased.";
+            message = "Re-Login1 Pleased.";
         }
         
         request.setAttribute("code", code);

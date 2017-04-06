@@ -7,19 +7,17 @@ package mykmutt.report.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import mykmutt.report.demo.model.Ticket;
 
 /**
  *
  * @author Antonymz
  */
-public class DeleteTicket extends HttpServlet {
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,44 +31,9 @@ public class DeleteTicket extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String target = "/login.jsp";
-        String code = "";
-        String alert = "";
-        String ticket_message = "";
-        String ticket_id = request.getParameter("id");
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
-                if (ticket_id != null) {
-                    if (Ticket.delete(Integer.parseInt(ticket_id))) {
-                        ticket_message = "Delete complete!";
-                        code = "success";
-                        alert = "Success!";
-                        target = "/UpdateStatus.jsp";
-                    } else {
-                        ticket_message = "Delete incomplete!";
-                        code = "warning";
-                        alert = "Warning!";
-                    }
-                }
-            } else {
-                code = "Error";
-                alert = "Error!";
-                ticket_message = "Re-Login Pleased.";
-            }
-        } else {
-            code = "Error";
-            alert = "Error!";
-            ticket_message = "Re-Login Pleased.";
-        }
-
-        request.setAttribute("message", ticket_message);
-        request.setAttribute("code", code);
-        request.setAttribute("alert", alert);
-        List<Ticket> tickets = Ticket.getAllTickets();
-        request.setAttribute("tickets", tickets);
-
-        getServletContext().getRequestDispatcher(target).forward(request, response);
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect("Login");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

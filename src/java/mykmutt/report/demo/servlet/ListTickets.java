@@ -28,7 +28,7 @@ public class ListTickets extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session != null) {
-            if (session.getAttribute("member") != null && session.getAttribute("isLoged").equals("yes")) {
+            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
                 List<Ticket> tickets = Ticket.getAllTickets();
                 request.setAttribute("tickets", tickets);
                 target = "/ListTickets.jsp";
