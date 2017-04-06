@@ -112,7 +112,7 @@
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted">Written by MY-KMUTT</p>
+                <p class="text-muted">Written by My KMUTT-Report</p>
             </div>
         </footer>
 
