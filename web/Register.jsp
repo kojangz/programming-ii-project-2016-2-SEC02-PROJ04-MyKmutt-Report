@@ -39,8 +39,7 @@
                 color: #FFFFCC;
             }
             .contents{
-                background-color:#CDC9C9;
-                border: 10px solid #FFFAFA;
+                background-color:#D3D3D3;
                 padding-top: 20px ;
                 padding-left: 30px;
                 padding-right: 30px;
