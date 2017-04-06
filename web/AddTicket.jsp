@@ -67,6 +67,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="Home">Home</a></li>
                         <li class="active"><a href="AddTicket">Add Ticket</a></li>
+                        <li><a href="ListTickets">List all ticket</a></li>
                         <li><a href="Login">Log out</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
