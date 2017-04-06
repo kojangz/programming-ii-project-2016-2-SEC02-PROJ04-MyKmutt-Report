@@ -31,6 +31,25 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>My KMUTT - Report - Ticket List</title>
+        <style>
+            html,body{
+                background-color:#F5F5F5;
+                color: #000000;
+            }
+            .page-header{
+                background-color:#FFFFFF;
+                padding-top: 40px ;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 40px;
+                color: #000000;
+                font-family:Cordia New;
+                text-align:center;
+            }
+            .container{
+                width:900px;
+            }
+        </style>
     </head>
     <body>
 
@@ -60,7 +79,8 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>List All Tickets</h1>
+                <h1><font size="600">╔ <b><u>LIST ALL TICKETS</u></b> ╝</font>
+                    </br><font size=50> MY-KMUTT </font></h1>
             </div>
 
             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
