@@ -51,9 +51,9 @@
                 </h1>
             </div>
             <div class="container">
-            <a href="AddTicket"><button type="button" class="btn btn-default btn-lg btn-block"> Add Ticket ! </button></a><br>
-            <a href="ListTickets"><button type="button" class="btn btn-default btn-lg btn-block"> List All Tickets !</button></a><br>
-            <a href="Login"><button type="button" class="btn btn-default btn-lg btn-block"> LOG OUT </button></a>
+            <a href="AddTicket"><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Add Ticket ! </button></a><br>
+            <a href="ListTickets"><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> List All Tickets !</button></a><br>
+            <a href="Login"><button type="button" class="btn btn-default btn-lg btn-block"> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> LOG OUT </button></a>
         </div>
     </body>
     <footer class="footer">
