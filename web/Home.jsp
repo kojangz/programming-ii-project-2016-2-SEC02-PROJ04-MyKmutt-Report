@@ -35,10 +35,21 @@
     <body>
         <div class="container">
             <div class="header">
-                <h1>╔ <u>HOME</u> ╝</h1>
-            </div><br><br>
-            <a href="AddTicket"><button type="button" class="btn btn-default btn-lg btn-block"> Add Ticket </button></a><br>
-            <button type="button" class="btn btn-default btn-lg btn-block"> Report </button><br>
+                <h1>Home</h1>
+            </div>
+
+            <%
+                if (request.getAttribute("code") != null) {
+            %>
+            <div class="alert alert-<%=(String) request.getAttribute("code")%>">
+                <strong><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
+            
+            <button type="button" class="btn btn-default btn-lg btn-block"> Add Ticket </button>
+            <button type="button" class="btn btn-default btn-lg btn-block"> Report </button>
             <button type="button" class="btn btn-default btn-lg btn-block"> Register </button>
         </div>
     </body>
