@@ -34,7 +34,7 @@
             }
             .credit{
                 padding-left: 100px;
-                padding-top: 20px;
+                padding-top: 1px;
             }
         </style>
         <div class="container">

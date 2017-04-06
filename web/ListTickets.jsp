@@ -48,8 +48,9 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="ListTickets">Home</a></li>
+                        <li class="active"><a href="Home">Home</a></li>
                         <li><a href="AddTicket">Add Ticket</a></li>
+                        <li><a href="Login">Log out</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
