@@ -33,7 +33,7 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        
             <%
                 if (request.getAttribute("code") != null) { 
             %>
@@ -44,12 +44,13 @@
             <%
                 }
             %>
-           
-            <div class="header"><br>
+        
+            <div class="header">
                 <h1>╔ <u>HOME</u> ╝</br>
-                     <font size=100> MY-KMUTT </font></h1>
+                     <font size=100> MY-KMUTT </font>
+                </h1>
             </div>
-            <br><br>
+            <div class="container">
             <a href="AddTicket"><button type="button" class="btn btn-default btn-lg btn-block"> Add Ticket ! </button></a><br>
             <a href="ListTickets"><button type="button" class="btn btn-default btn-lg btn-block"> List All Tickets !</button></a><br>
             <a href="Login"><button type="button" class="btn btn-default btn-lg btn-block"> LOG OUT </button></a>

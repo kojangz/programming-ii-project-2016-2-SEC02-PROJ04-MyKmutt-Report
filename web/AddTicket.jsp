@@ -29,6 +29,25 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>My KMUTT - Report - Ticket List</title>
+        <style>
+            html,body{
+                background-color:#F5F5F5;
+                color: #000000;
+            }
+            .page-header{
+                background-color:#FFFFFF;
+                padding-top: 40px ;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 40px;
+                color: #000000;
+                font-family:Cordia New;
+                text-align:center;
+            }
+            .container{
+                width:700px;
+            }
+        </style>
     </head>
     <body>
 
@@ -42,7 +61,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="ListTickets">My KMUTT - Report</a>
+                    <a class="navbar-brand" href="ListTickets">My KMUTT - Report &nbsp;&nbsp;|</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -56,34 +75,38 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Add Ticket</h1>
+                <article>
+                    <h1><font size="600">╔ <b><u>ADD TICKET</u></b> ╝</font>
+                    </br><font size=50> MY-KMUTT </font></h1>
+                </article>
             </div>
-            
+
             <%
                 if (request.getAttribute("code") != null) {
             %>
-            <div class="alert alert-<%=(String)request.getAttribute("code")%>">
-                <strong><%=(String)request.getAttribute("alert")%></strong> <%=(String)request.getAttribute("message")%>
+            <div class="alert alert-<%=(String) request.getAttribute("code")%>">
+                <strong><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
             </div>
             <%
                 }
             %>
-            
-            <form action="AddTicket" method="POST">
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input name="name" type="text" class="form-control" id="title" placeholder="Title">
-                </div>
-                <div class="form-group">
-                    <label for="desc">Description</label>
-                    <textarea name="desc" class="form-control" id="desc" rows="3" placeholder="Description"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="place">Location</label>
-                    <input name="place" type="text" class="form-control" id="place" placeholder="Location">
-                </div>
-                <button type="submit" name="submit" class="btn btn-default">Submit</button>
-            </form>
+            <div class="content">
+                <form action="AddTicket" method="POST">
+                    <div class="form-group">
+                        <label for="title">TITLE</label>
+                        <input name="name" type="text" class="form-control" id="title" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="desc">DESCRIPTION</label>
+                        <textarea name="desc" class="form-control" id="desc" rows="3" placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="place">LOCATION</label>
+                        <input name="place" type="text" class="form-control" id="place" placeholder="Location">
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-default">SUBMIT</button>
+                </form>
+            </div>
         </div>
 
         <footer class="footer">
