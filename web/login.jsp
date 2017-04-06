@@ -67,7 +67,7 @@
             <%
                 }
             %>
-            <form action="Login" method="get">
+            <form action="Login" method="post">
                 <div class="contents">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">

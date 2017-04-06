@@ -44,6 +44,7 @@ public class Login extends HttpServlet {
             if (member_username != null && member_password != null) {
                 if (Member.isMember(member_username, member_password)) {          
                     session.setAttribute("member", member_username);
+                    session.setAttribute("isLoged", "yes");
                     target = "/Home.jsp";
                 } else {
                     code = "Error";
