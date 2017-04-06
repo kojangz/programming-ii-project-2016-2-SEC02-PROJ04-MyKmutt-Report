@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mykmutt.report.demo.model.Ticket;
 
 /**
@@ -32,23 +33,39 @@ public class UpdateStatus extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String target = "/UpdateStatus.jsp";
+        String target = "/login.jsp";
         String code = "";
         String alert = "";
         String ticket_message = "";
         String ticket_status = request.getParameter("status");
         String ticket_id = request.getParameter("id");
-        if (ticket_id != null && ticket_status != null) {
-            if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
-                ticket_message = "Update complete!";
-                code = "success";
-                alert = "Success!";
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            if (session.getAttribute("member") != null && session.getAttribute("isLoged").equals("yes")) {
+                if (ticket_id != null && ticket_status != null) {
+                    if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
+                        ticket_message = "Update complete!";
+                        code = "success";
+                        alert = "Success!";
+                        target = "/UpdateStatus.jsp";
+                    } else {
+                        ticket_message = "Update incomplete!";
+                        code = "warning";
+                        alert = "Warning!";
+                    }
+                }
             } else {
-                ticket_message = "Update incomplete!";
-                code = "warning";
-                alert = "Warning!";
+                code = "Error";
+                alert = "Error!";
+                ticket_message = "Re-Login Pleased.";
             }
+        } else {
+            code = "Error";
+            alert = "Error!";
+            ticket_message = "Re-Login Pleased.";
         }
+
         request.setAttribute("message", ticket_message);
         request.setAttribute("code", code);
         request.setAttribute("alert", alert);
