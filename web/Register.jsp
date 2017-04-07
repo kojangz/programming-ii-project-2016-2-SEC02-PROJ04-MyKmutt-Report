@@ -63,7 +63,7 @@
                     <font size=100> MY-KMUTT </font></h2>
                 </article>
             </div>
-
+            <br>
             <%
                 if (request.getAttribute("code") != null) {
             %>
