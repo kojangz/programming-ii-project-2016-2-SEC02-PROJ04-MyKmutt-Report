@@ -38,8 +38,9 @@
                 if (request.getAttribute("code") != null) { 
             %>
             <div class="alert alert-<%=(String) request.getAttribute("code")%>">
-                <font size="5"><strong><font color="red"><%=(String) request.getAttribute("alert")%></font></strong> 
-                <font color="#6A5ACD"><%=(String) request.getAttribute("message")%></font></font>
+                <p align="right"><font size="4"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <strong><%=(String) request.getAttribute("alert")%></strong>
+                    <%=(String) request.getAttribute("message")%></font></p>
             </div>
             <%
                 }

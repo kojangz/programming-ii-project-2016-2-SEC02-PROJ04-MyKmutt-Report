@@ -41,8 +41,8 @@ public class Home extends HttpServlet {
             if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
                 String member = (String) session.getAttribute("member");
                 code = "Success";
-                alert = "Success!";
-                message = "Loged in";
+                alert = "Log In";
+                message = "... Success!!";
                 out.print("Hello, " + member + " Welcome to Profile");
             } else {
                 code = "Error";

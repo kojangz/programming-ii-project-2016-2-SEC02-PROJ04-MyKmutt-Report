@@ -72,7 +72,7 @@
                         <div class="col-md-6 col-md-offset-3">
                             <br>
                             <div class="form-group">
-                                <label for="exampleUsername">USERNAME</label>
+                                <label for="exampleUsername"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> USERNAME</label>
                                 <div class="input-group-addon"> ✎ </div>
                                 <font face="Tahoma">
                                 <input type="Username"  class="form-control" id="exampleUsername" name="username" placeholder="USERNAME">
@@ -83,7 +83,7 @@
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
                             <div class="form-group">
-                                <label for="examplePassword">PASSWORD</label>
+                                <label for="examplePassword"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> PASSWORD</label>
                                 <div class="input-group-addon"> ✎ </div>
                                 <font face="Tahoma">
                                 <input type="password" class="form-control" id="examplePassword" name="password" placeholder="PASSWORD">
