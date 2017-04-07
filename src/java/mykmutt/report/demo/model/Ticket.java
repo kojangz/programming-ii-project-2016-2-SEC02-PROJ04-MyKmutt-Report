@@ -40,6 +40,14 @@ public class Ticket {
         this.status = 0;
     }
 
+    public Ticket(String name, String desc, String place, int userId) {
+        this.name = name;
+        this.desc = desc;
+        this.place = place;
+        this.status = 0;
+        this.userId = userId;
+    }
+
     public Ticket(int id, String name, String desc, String place, int status) {
         this.id = id;
         this.name = name;
@@ -55,7 +63,7 @@ public class Ticket {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-    
+
     public String getPlace() {
         return place;
     }
@@ -142,26 +150,26 @@ public class Ticket {
     }
 
     public boolean addTicket() {
-        try {
-            Connection conn = ConnectionBuilder.getConnection();
-            String sqlCmd = "INSERT INTO ticket(ticket_name, ticket_desc, ticket_place,ticket_status) VALUES(?,?,?,0)";
-            PreparedStatement pstm = conn.prepareStatement(sqlCmd);
-            pstm.setString(1, name);
-            pstm.setString(2, desc);
-            pstm.setString(3, place);
-            int result = pstm.executeUpdate();
-            if (result != 0) {
-                return true;
+        if (name.length() > 0 && desc.length() > 0 && place.length() > 0) {
+            try {
+                Connection conn = ConnectionBuilder.getConnection();
+                String sqlCmd = "INSERT INTO ticket(ticket_name, ticket_desc, ticket_place,ticket_status,ticket_user) VALUES(?,?,?,0,?)";
+                PreparedStatement pstm = conn.prepareStatement(sqlCmd);
+                pstm.setString(1, name);
+                pstm.setString(2, desc);
+                pstm.setString(3, place);
+                pstm.setInt(4, userId);
+                int result = pstm.executeUpdate();
+                if (result != 0) {
+                    return true;
+                }
+            } catch (SQLException ex) {
+                System.err.println(ex);
             }
-        } catch (SQLException ex) {
-            System.err.println(ex);
         }
         return false;
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(Ticket.getAllTickets());
-//    }
     @Override
     public String toString() {
         return "Ticket{" + "id=" + id + ", name=" + name + ", desc=" + desc + ", place=" + place + '}';

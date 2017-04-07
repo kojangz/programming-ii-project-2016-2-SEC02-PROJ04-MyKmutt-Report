@@ -11,11 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mykmutt.report.demo.model.Ticket;
 
 /**
  *
- * 
+ *
  */
 public class AddTicket extends HttpServlet {
 
@@ -33,29 +34,46 @@ public class AddTicket extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String target = "/AddTicket.jsp";
-        
-        if (request.getParameter("submit") != null) {
-            String name = request.getParameter("name");
-            String desc = request.getParameter("desc");
-            String place = request.getParameter("place");
-            Ticket t = new Ticket(name, desc, place);
-            String code = null;
-            String alert = null;
-            String message = null;
-            if (t.addTicket()) {
-                code = "success";
-                alert = "Success!";
-                message = "Ticket is now opened.";
+        String code = null;
+        String alert = null;
+        String message = null;
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
+                try{
+                String name = request.getParameter("name");
+                String desc = request.getParameter("desc");
+                String place = request.getParameter("place");
+                int id = Integer.parseInt((String) session.getAttribute("member_id"));
+                Ticket t = new Ticket(name, desc, place,id);
+                if (t.addTicket()) {
+                    code = "success";
+                    alert = "Success!";
+                    message = "Ticket is now opened.";
+                } else {
+                    code = "warning";
+                    alert = "Warning!";
+                    message = "Cannot open the ticket.";
+                }
+                } catch (Exception ex) {
+                    System.out.println("AddTicket.ex: "+ex);
+                    
+                }
             } else {
-                code = "warning";
-                alert = "Warning!";
-                message = "Cannot open the ticket.";
+                code = "Error";
+                alert = "Error!";
+                message = "Re-Login3 Pleased.";
+                target = "/login.jsp";
             }
-            request.setAttribute("code", code);
-            request.setAttribute("alert", alert);
-            request.setAttribute("message", message);
+        } else {
+            code = "Error";
+            alert = "Error!";
+            message = "Re-Login1 Pleased.";
         }
         
+        request.setAttribute("code", code);
+        request.setAttribute("alert", alert);
+        request.setAttribute("message", message);
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 

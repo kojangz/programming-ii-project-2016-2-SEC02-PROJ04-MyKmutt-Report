@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mykmutt.report.demo.model.Ticket;
 
 public class ListTickets extends HttpServlet {
@@ -21,8 +22,29 @@ public class ListTickets extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String target = "/ListTickets.jsp";
-        List<Ticket> tickets = Ticket.getAllTickets();
-        request.setAttribute("tickets", tickets);
+        String code = null;
+        String alert = null;
+        String message = null;
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
+                List<Ticket> tickets = Ticket.getAllTickets();
+                request.setAttribute("tickets", tickets);
+            } else {
+                code = "Error";
+                alert = "Error!";
+                message = "Re-Login Pleased.";
+                target = "/login.jsp";
+            }
+        } else {
+            code = "Error";
+            alert = "Error!";
+            message = "Re-Login Pleased.";
+        }
+        request.setAttribute("code", code);
+        request.setAttribute("alert", alert);
+        request.setAttribute("message", message);
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 

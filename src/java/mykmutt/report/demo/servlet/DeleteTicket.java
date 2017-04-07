@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mykmutt.report.demo.model.Ticket;
 
 /**
@@ -37,18 +38,32 @@ public class DeleteTicket extends HttpServlet {
         String alert = "";
         String ticket_message = "";
         String ticket_id = request.getParameter("id");
-        if (ticket_id != null) {
-            if (Ticket.delete(Integer.parseInt(ticket_id))) {
-                ticket_message = "Delete complete!";
-                code = "success";
-                alert = "Success!";
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
+                if (ticket_id != null) {
+                    if (Ticket.delete(Integer.parseInt(ticket_id))) {
+                        ticket_message = "Delete complete!";
+                        code = "success";
+                        alert = "Success!";
+                    } else {
+                        ticket_message = "Delete incomplete!";
+                        code = "warning";
+                        alert = "Warning!";
+                    }
+                }
             } else {
-                ticket_message = "Delete incomplete!";
-                code = "warning";
-                alert = "Warning!";
+                code = "Error";
+                alert = "Error!";
+                ticket_message = "Re-Login Pleased.";
+                target = "/login.jsp";
             }
+        } else {
+            code = "Error";
+            alert = "Error!";
+            ticket_message = "Re-Login Pleased.";
         }
-        
+
         request.setAttribute("message", ticket_message);
         request.setAttribute("code", code);
         request.setAttribute("alert", alert);
@@ -57,7 +72,6 @@ public class DeleteTicket extends HttpServlet {
 
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

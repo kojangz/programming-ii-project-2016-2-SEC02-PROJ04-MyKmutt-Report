@@ -38,26 +38,31 @@ public class Register extends HttpServlet {
         String alert = null;
         String message = null;
         if (request.getParameter("submit") != null) {
-            String name = request.getParameter("name");
-            String surname = request.getParameter("surname");
-            long student_ID = Long.parseLong(request.getParameter("student_ID"));
-            String gender = request.getParameter("gender");
-            String faculty = request.getParameter("faculty");
-            String email = request.getParameter("email");
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String rePassword = request.getParameter("repassword");
-            if (password.equals(rePassword)) {
-                Member mb = new Member(name, surname, student_ID, gender, faculty, email, username, password, 0);
-                mb.addMember();
-                code = "success";
-                alert = "Success!";
-                message = "Register complete!.";
-            } else {
-                code = "warning";
-                alert = "Warning!";
-                message = "Register Re-complete!.";
+            try {
+                String name = request.getParameter("name");
+                String surname = request.getParameter("surname");
+                long student_ID = Long.parseLong(request.getParameter("student_ID"));
+                String gender = request.getParameter("gender");
+                String faculty = request.getParameter("faculty");
+                String email = request.getParameter("email");
+                String username = request.getParameter("username");
+                String password = request.getParameter("password");
+                String rePassword = request.getParameter("repassword");
+                if (password.equals(rePassword)) {
+                    Member mb = new Member(name, surname, student_ID, gender, faculty, email, username, password, 0);
+                    mb.addMember();
+                    code = "success";
+                    alert = "Success!";
+                    message = "Register complete!.";
+                } else {
+                    code = "warning";
+                    alert = "Warning!";
+                    message = "Register Re-complete!.";
+                }
+            } catch (Exception ex) {
+                System.out.println("Catch ex regis: " + ex);
             }
+
             request.setAttribute("code", code);
             request.setAttribute("alert", alert);
             request.setAttribute("message", message);

@@ -87,13 +87,14 @@
                 if (request.getAttribute("code") != null) {
             %>
             <div class="alert alert-<%=(String) request.getAttribute("code")%>">
-                <strong><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
+                <strong><%=(String) request.getAttribute("alert")%></strong> 
+                <%=(String) request.getAttribute("message")%>
             </div>
             <%
                 }
             %>
             <div class="content">
-                <form action="AddTicket" method="POST">
+                <form action="AddTicket" method="get">
                     <div class="form-group">
                         <label for="title">TITLE</label>
                         <input name="name" type="text" class="form-control" id="title" placeholder="Title">
@@ -105,7 +106,10 @@
                     <div class="form-group">
                         <label for="place">LOCATION</label>
                         <input name="place" type="text" class="form-control" id="place" placeholder="Location">
+                        <input name="member_id" type="hidden" value="<%=session.getAttribute("member_id")%>">
                     </div>
+                    
+                 
                     <button type="submit" name="submit" class="btn btn-default">SUBMIT</button>
                 </form>
             </div>

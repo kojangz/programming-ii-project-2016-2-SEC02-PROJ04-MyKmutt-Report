@@ -208,11 +208,23 @@ public class Member {
         return "";
     }
 
+    public static int getIdByUsername(String username) throws SQLException {
+        String sqlCmd = "SELECT `member_id` FROM `member` WHERE member_username = '" + username + "'";
+        Connection conn = ConnectionBuilder.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sqlCmd);
+        int id = 0;
+        if(rs.next()){
+            id = rs.getInt("member_id");
+        }
+        return id;
+    }
+
     public static boolean isMember(String member_username, String member_password) {
         try {
             Connection conn = ConnectionBuilder.getConnection();
             String sqlCmd = "SELECT * FROM member WHERE member_username = '" + member_username + "' AND member_password = '"
-                    + member_password+"'";
+                    + member_password + "'";
             PreparedStatement ps = conn.prepareStatement(sqlCmd);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -229,5 +241,5 @@ public class Member {
     public String toString() {
         return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", stdId=" + stdId + ", gender=" + gender + ", faculty=" + faculty + ", email=" + email + ", username=" + username + ", password=" + password + ", position=" + position + '}';
     }
-
+    
 }

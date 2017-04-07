@@ -32,23 +32,23 @@ public class Home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String target = "/login.jsp";
+        String target = "/Home.jsp";
         String code = null;
         String alert = null;
         String message = null;
         HttpSession session = request.getSession(false);
         if (session != null) {
-            if (session.getAttribute("member") != null && session.getAttribute("isLoged").equals("yes")) {
+            if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
                 String member = (String) session.getAttribute("member");
-                target = "/Home.jsp";
                 code = "Success";
-                alert = "Success!";
-                message = "Loged in";
+                alert = "Log In";
+                message = "... Success!!";
                 out.print("Hello, " + member + " Welcome to Profile");
             } else {
                 code = "Error";
                 alert = "Error!";
                 message = "Re-Login Pleased.";
+                target = "/login.jsp";
             }
         } else {
             code = "Error";

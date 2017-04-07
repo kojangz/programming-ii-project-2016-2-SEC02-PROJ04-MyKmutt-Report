@@ -33,6 +33,23 @@
             form{
                 display: inline-block;
             }
+            html,body{
+                background-color:#F5F5F5;
+                color: #000000;
+            }
+            .page-header{
+                background-color:#FFFFFF;
+                padding-top: 40px ;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 40px;
+                color: #000000;
+                font-family:Cordia New;
+                text-align:center;
+            }
+            .container{
+                width:900px;
+            }
         </style>
     </head>
     <body>
@@ -47,12 +64,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="ListTickets">My KMUTT - Report</a>
+                    <a class="navbar-brand" href="ListTickets">My KMUTT - Report &nbsp;&nbsp; | </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="ListTickets">Home</a></li>
-                        <li><a href="AddTicket">Add Ticket</a></li>
+                       <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                        <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
+                        <li class="active"><a href="UpdateStatus"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Update All Ticket</a></li>
+                        <li><a href="Login"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -61,7 +80,8 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Update Tickets</h1>
+                <h1><font size="600">╔ <b><u>UPDATE TICKETS</u></b> ╝</font>
+                    </br><font size=50> MY-KMUTT </font></h1>
             </div>
 
             <%
