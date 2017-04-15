@@ -71,7 +71,7 @@
                        <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                         <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
                         <li class="active"><a href="UpdateStatus"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Update All Ticket</a></li>
-                        <li><a href="Login"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
+                        <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
