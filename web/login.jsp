@@ -90,11 +90,9 @@
                                 </font>
                             </div>
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember"> <font size="4"> REMEMBER ME CLICK!! </font></input>
-                            </label>
-                        </div>
+                        <label>
+                            <input type="checkbox" name="remember"> <font size="4"> REMEMBER ME CLICK!! </font></input>
+                        </label>
                         <div class="button">
                             <p>
                                 <input type="submit" name="submit" class="btn btn-default btn-lg active" value="LOG IN"></input>
