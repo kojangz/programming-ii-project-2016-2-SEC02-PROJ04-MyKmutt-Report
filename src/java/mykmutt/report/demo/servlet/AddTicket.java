@@ -62,7 +62,7 @@ public class AddTicket extends HttpServlet {
             } else {
                 code = "Error";
                 alert = "Error!";
-                message = "Re-Login3 Pleased.";
+                message = "Re-Login Pleased.";
                 target = "/login.jsp";
             }
         } else {
