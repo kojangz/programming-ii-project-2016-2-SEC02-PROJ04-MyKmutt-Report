@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import mykmutt.report.demo.datasource.EmailUtil;
+import mykmutt.report.demo.model.Member;
 import mykmutt.report.demo.model.Ticket;
 
 /**
@@ -45,6 +47,7 @@ public class UpdateStatus extends HttpServlet {
             if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
                 if (ticket_id != null && ticket_status != null) {
                     if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
+                        EmailUtil.sendUpdateStatus(Member.getMember(Integer.parseInt((String)session.getAttribute("member_id"))), Ticket.getTicketById((Integer.parseInt(ticket_id))));
                         ticket_message = "Update complete!";
                         code = "success";
                         alert = "Success!";

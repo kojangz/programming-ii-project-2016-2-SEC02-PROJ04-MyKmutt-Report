@@ -83,5 +83,5 @@ public class EmailUtil {
                     + "\n\nโปรดเข้าสู่ระบบเพื่อตรวจสอบได้ที่ http://mykmutt.sit.kmutt.ac.th ขอบคุณค่ะ";
         return sendEmail(m.getEmail(), title, detail);
     }
-
+    
 }
