@@ -79,7 +79,7 @@
             <div class="page-header">
                 <article>
                     <h1><font size="600">╔ <b><u>ADD TICKET</u></b> ╝</font>
-                    </br><font size=50> MY-KMUTT </font></h1>
+                        </br><font size=50> MY-KMUTT </font></h1>
                 </article>
             </div>
 
@@ -106,10 +106,10 @@
                     <div class="form-group">
                         <label for="place">LOCATION</label>
                         <input name="place" type="text" class="form-control" id="place" placeholder="Location">
-                        <input name="member_id" type="hidden" value="<%=session.getAttribute("member_id")%>">
                     </div>
-                    
-                 
+
+
+                    <input name="member_id" type="hidden" value="<%=session.getAttribute("member_id")%>">
                     <button type="submit" name="submit" class="btn btn-default">SUBMIT</button>
                 </form>
             </div>

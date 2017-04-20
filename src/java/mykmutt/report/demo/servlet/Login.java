@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import mykmutt.report.demo.datasource.PasswordUtil;
 import mykmutt.report.demo.model.Member;
 
 /**
@@ -46,6 +47,7 @@ public class Login extends HttpServlet {
             String member_username = request.getParameter("username");
             String member_password = request.getParameter("password");
             if (member_username != null && member_password != null) {
+                member_password=PasswordUtil.getKeepPassword(member_password);
                 if (Member.isMember(member_username, member_password)) {
                     try {
                         String memberId = Member.getIdByUsername(member_username)+"";
