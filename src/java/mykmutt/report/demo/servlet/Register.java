@@ -54,6 +54,7 @@ public class Register extends HttpServlet {
                     code = "success";
                     alert = "Success!";
                     message = "Register complete!.";
+                    target = "/login.jsp";
                 } else {
                     code = "warning";
                     alert = "Warning!";
