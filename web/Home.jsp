@@ -33,19 +33,10 @@
         </style>
     </head>
     <body>
-        
-            <%
-                if (request.getAttribute("code") != null) { 
-            %>
-            <div class="alert alert-<%=(String) request.getAttribute("code")%>">
-                <p align="right"><font size="4"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        <strong><%=(String) request.getAttribute("alert")%></strong>
-                    <%=(String) request.getAttribute("message")%></font></p>
-            </div>
-            <%
-                }
-            %>
-        
+        <br>
+        <p align="right"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
+            Manassanan pop Login Now &nbsp;&nbsp;</font></p>
+        <br>
             <div class="header">
                 <h1>╔ <u>HOME</u> ╝</br>
                      <font size=100> MY-KMUTT </font>
