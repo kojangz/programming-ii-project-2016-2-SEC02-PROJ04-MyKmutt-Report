@@ -81,7 +81,7 @@
                             <div class="form-group">
                                 <label for="exampleName"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ENTER NAME</label>
                                 <font face="Tahoma">
-                                <input type="name" class="form-control" id="exampleName" name="name" placeholder="NAME">
+                                <input type="name" class="form-control" id="exampleName" name="name" placeholder="NAME" required="">
                                 </font>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                             <div class="form-group">
                                 <label for="exampleSurname"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ENTER SURNAME</label>
                                 <font face="Tahoma">
-                                <input type="surname" class="form-control" id="exampleSurname" name="surname" placeholder="SURNAME">
+                                <input type="surname" class="form-control" id="exampleSurname" name="surname" placeholder="SURNAME" required="">
                                 </font>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                             <div class="form-group">
                                 <label for="exampleStudentID"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> ENTER STUDENT ID</label>
                                 <font face="Tahoma">
-                                <input type="number" class="form-control" id="exampleStudentID" name="student_ID" placeholder="STUDENT ID">
+                                <input type="number" class="form-control" id="exampleStudentID" name="student_ID" placeholder="STUDENT ID" required="">
                                 </font>
                             </div>
                         </div>
@@ -107,10 +107,10 @@
                             <label for="exampleGender"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> SELECT GENDER</label>
                             <br>
                             <label class="checkbox-inline">
-                                <input type="radio" id="inlineCheckbox1" name="gender" value="F"><font color="FF6666"> FEMALE </font>
+                                <input type="radio" id="inlineCheckbox1" name="gender" value="F" required=""><font color="FF6666"> FEMALE </font>
                             </label>
                             <label class="checkbox-inline">
-                                <input type="radio" id="inlineCheckbox2" name="gender" value="M"><font color="6666FF"> MALE </font>
+                                <input type="radio" id="inlineCheckbox2" name="gender" value="M" required=""><font color="6666FF"> MALE </font>
                             </label>
                         </div>
 
@@ -180,7 +180,7 @@
                                     <div class="form-group">
                                         <label for="exampleEmail"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>  E-MAIL ADDRESS</label>
                                         <font face="Tahoma">
-                                        <input type="Email" class="form-control" id="exampleEmail" name="email" placeholder="EMAIL ADDRESS">
+                                        <input type="Email" class="form-control" id="exampleEmail" name="email" placeholder="EMAIL ADDRESS" required="">
                                         </font>
                                     </div>
                                 </div>
@@ -191,7 +191,7 @@
                                     <div class="form-group">
                                         <label for="exampleUsername"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> CREATE NEW USERNAME</label>
                                         <font face="Tahoma">
-                                        <input type="username" class="form-control" id="exampleUsername" name="username" placeholder="CREATE USERNAME">
+                                        <input type="username" class="form-control" id="exampleUsername" name="username" placeholder="CREATE USERNAME" required="">
                                         </font>
                                     </div>
                                 </div>  
@@ -202,7 +202,7 @@
                                     <div class="form-group">
                                         <label for="exampleNewPassword"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> CREATE NEW PASSWORD</label>
                                         <font face="Tahoma">
-                                        <input type="password" class="form-control" id="exampleNewPassword" name="password" placeholder="NEW PASSWORD">
+                                        <input type="password" class="form-control" id="exampleNewPassword" name="password" placeholder="NEW PASSWORD" required="">
                                     </div>
                                 </div>              
                                 <div class="col-md-6">
@@ -212,7 +212,7 @@
                                         <label for="exampleConfirmPassword"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> CONFIRM PASSWORD</label>
                                         </font>
                                         <font face="Tahoma">
-                                        <input type="password" class="form-control" id="exampleConfirmPassword" name="repassword" placeholder="CONFIRM PASSWORD">
+                                        <input type="password" class="form-control" id="exampleConfirmPassword" name="repassword" placeholder="CONFIRM PASSWORD" required="">
                                         </font>
                                     </div>
                                 </div>

@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mykmutt.report.demo.datasource.PasswordUtil;
 import mykmutt.report.demo.model.Member;
 import mykmutt.report.demo.model.Ticket;
 
@@ -49,6 +50,7 @@ public class Register extends HttpServlet {
                 String password = request.getParameter("password");
                 String rePassword = request.getParameter("repassword");
                 if (password.equals(rePassword)) {
+                    password=PasswordUtil.getKeepPassword(password);
                     Member mb = new Member(name, surname, student_ID, gender, faculty, email, username, password, 0);
                     mb.addMember();
                     code = "success";
