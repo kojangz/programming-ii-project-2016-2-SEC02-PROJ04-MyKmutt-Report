@@ -21,11 +21,13 @@ public class PasswordUtil {
     private static final String ALGORITHM = "PBKDF2WithHmacSHA256";
     private static final int ITERATION_COUNT = 10000;
     private static final int KEY_LENGTH = 256;
+    private static final String SALT = "akfhsjdiropxhrj;'=-)";
+    private static final int LENGHT = 20;
  
-    public static String getSafetyPassword(String password, String salt) {
+    private static String getSafetyPassword(String password) {
  
         char[] passCharAry = password.toCharArray();
-        byte[] hashedSalt = getHashedSalt(salt);
+        byte[] hashedSalt = getHashedSalt(SALT);
  
         PBEKeySpec keySpec = new PBEKeySpec(passCharAry, hashedSalt, ITERATION_COUNT, KEY_LENGTH);
  
@@ -51,14 +53,17 @@ public class PasswordUtil {
         return sb.toString();
     }
  
-    private static byte[] getHashedSalt(String salt) {
+    private static byte[] getHashedSalt(String SALT) {
         MessageDigest messageDigest;
         try {
             messageDigest = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
-        messageDigest.update(salt.getBytes());
+        messageDigest.update(SALT.getBytes());
         return messageDigest.digest();
+    }
+    public static String getKeepPassword(String password){       
+        return PasswordUtil.getSafetyPassword(password).substring(64-LENGHT);
     }
 }
