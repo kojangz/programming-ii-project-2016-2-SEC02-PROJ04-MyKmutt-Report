@@ -4,6 +4,8 @@
     Author     : Koichi
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="mykmutt.report.demo.model.Place"%>
 <%@page import="java.util.List"%>
 <%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -105,7 +107,16 @@
                     </div>
                     <div class="form-group">
                         <label for="place">LOCATION</label>
-                        <input name="place" type="text" class="form-control" id="place" placeholder="Location">
+                        <select id="exampleFaculty" name="place" class="form-control">
+                            <%
+                                ArrayList<Place> places = Place.getAllPlaces();
+                                for(Place p : places){
+                            %>
+                            <option value="<%= p.getPlace_id() %>"><%= p.getPlace_name() %></option>
+                            <%
+                                }
+                            %>
+                        </select>
                     </div>
 
 
