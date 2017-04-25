@@ -42,22 +42,31 @@ public class UpdateStatus extends HttpServlet {
         String ticket_status = request.getParameter("status");
         String ticket_id = request.getParameter("id");
         HttpSession session = request.getSession(false);
+        String position = (String) session.getAttribute("member_position");
 
         if (session != null) {
             if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
-                if (ticket_id != null && ticket_status != null) {
-                    if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
-                        EmailUtil.sendUpdateStatus(Member.getMember(Integer.parseInt((String) session.getAttribute("member_id"))),
-                                Ticket.getTicketById((Integer.parseInt(ticket_id))));
-                        ticket_message = "Update complete!";
-                        code = "success";
-                        alert = "Success!";
-                    } else {
-                        ticket_message = "Update incomplete!";
-                        code = "warning";
-                        alert = "Warning!";
+                if (position.equals("1")) {
+                    if (ticket_id != null && ticket_status != null) {
+                        if (Ticket.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("status")))) {
+                            EmailUtil.sendUpdateStatus(Member.getMember(Integer.parseInt((String) session.getAttribute("member_id"))),
+                                    Ticket.getTicketById((Integer.parseInt(ticket_id))));
+                            ticket_message = "Update complete!";
+                            code = "success";
+                            alert = "Success!";
+                        } else {
+                            ticket_message = "Update incomplete!";
+                            code = "warning";
+                            alert = "Warning!";
+                        }
                     }
+                } else {
+                    code = "Error";
+                    alert = "Error!";
+                    ticket_message = "Wrong Position.";
+                    target = "/ListTickets.jsp";
                 }
+
             } else {
                 code = "Error";
                 alert = "Error!";

@@ -39,19 +39,29 @@ public class DeleteTicket extends HttpServlet {
         String ticket_message = "";
         String ticket_id = request.getParameter("id");
         HttpSession session = request.getSession(false);
+        String position = (String) session.getAttribute("member_position");
+
         if (session != null) {
             if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
-                if (ticket_id != null) {
-                    if (Ticket.delete(Integer.parseInt(ticket_id))) {
-                        ticket_message = "Delete complete!";
-                        code = "success";
-                        alert = "Success!";
-                    } else {
-                        ticket_message = "Delete incomplete!";
-                        code = "warning";
-                        alert = "Warning!";
+                if (position.equals("1")) {
+                    if (ticket_id != null) {
+                        if (Ticket.delete(Integer.parseInt(ticket_id))) {
+                            ticket_message = "Delete complete!";
+                            code = "success";
+                            alert = "Success!";
+                        } else {
+                            ticket_message = "Delete incomplete!";
+                            code = "warning";
+                            alert = "Warning!";
+                        }
                     }
+                } else {
+                    code = "Error";
+                    alert = "Error!";
+                    ticket_message = "Wrong Position.";
+                    target = "/ListTickets.jsp";
                 }
+
             } else {
                 code = "Error";
                 alert = "Error!";
