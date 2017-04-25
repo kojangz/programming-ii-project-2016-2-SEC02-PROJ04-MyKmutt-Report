@@ -49,6 +49,9 @@
             .container{
                 width:900px;
             }
+            .block1{
+                float:right;
+            }
         </style>
     </head>
     <body>
@@ -63,16 +66,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="ListTickets">My KMUTT - Report &nbsp;&nbsp;|</a>
+                    <a class="navbar-brand">My KMUTT - Report &nbsp;&nbsp;|</a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                        <li class="active"><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li>
-                        <li><a href="ListTickets"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> List all ticket</a></li>
-                        <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log out</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+                <div class="block1">
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                            <li class="active"><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li>
+                            <li><a href="ListTickets"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> List all ticket</a></li>
+                            <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log out</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+                <div class="block2"><a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
+                        Manassanan Login Now</font></a></div>
             </div>
         </nav>
 
@@ -110,9 +117,9 @@
                         <select id="exampleFaculty" name="place" class="form-control">
                             <%
                                 ArrayList<Place> places = Place.getAllPlaces();
-                                for(Place p : places){
+                                for (Place p : places) {
                             %>
-                            <option value="<%= p.getPlace_id() %>"><%= p.getPlace_name() %></option>
+                            <option value="<%= p.getPlace_id()%>"><%= p.getPlace_name()%></option>
                             <%
                                 }
                             %>

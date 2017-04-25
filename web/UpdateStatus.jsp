@@ -19,7 +19,7 @@
 
         <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
         <!-- include a theme, can be included into the core instead of 2 separate files -->
-       
+
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -66,14 +66,18 @@
                     </button>
                     <a class="navbar-brand" href="ListTickets">My KMUTT - Report &nbsp;&nbsp; | </a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                       <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                        <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
-                        <li class="active"><a href="UpdateStatus"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Update All Ticket</a></li>
-                        <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
-                    </ul>
+                <div class="block1">
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                            <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
+                            <li class="active"><a href="UpdateStatus"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Update All Ticket</a></li>
+                            <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
+                        </ul>
+                    </div>
                 </div><!--/.nav-collapse -->
+                <div class="block2"><a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font> 
+                        Pop Login Now</font></a></div>
             </div>
         </nav>
 
@@ -116,26 +120,26 @@
                             <%=t.getPlace()%>
                         </td>
                         <td>    
-                            <center>
-                                <form action="UpdateStatus" method="post" onsubmit="return confirm('You really want to change status?');">  
-                                    <input type="hidden" name="id" value="<%=t.getId()%>">
-                                    <select  name="status" id="status" class="form-control">
-                                        <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
-                                        <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
-                                        <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
-                                    </select>                      
-                                    <button type='submit'><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-                                </form>
-                                <form action="DeleteTicket" method="post" onsubmit="return confirm('You really want to delete?');">       
-                                    <button type='submit'><span class="glyphicon glyphicon-trash"  ></span></button>
-                                    <input type="hidden" name="id" value="<%=t.getId()%>"> 
-                                </form>  
-                            </center>
-                        </td>
-                    </tr>
-                    <%
-                        }
-                    %>
+                <center>
+                    <form action="UpdateStatus" method="post" onsubmit="return confirm('You really want to change status?');">  
+                        <input type="hidden" name="id" value="<%=t.getId()%>">
+                        <select  name="status" id="status" class="form-control">
+                            <option value="0" <%=t.getStatus() == 0 ? "selected" : ""%>>Received</option>
+                            <option value="1" <%=t.getStatus() == 1 ? "selected" : ""%>>On Going</option>
+                            <option value="2" <%=t.getStatus() == 2 ? "selected" : ""%>>Finished</option>
+                        </select>                      
+                        <button type='submit'><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                    </form>
+                    <form action="DeleteTicket" method="post" onsubmit="return confirm('You really want to delete?');">       
+                        <button type='submit'><span class="glyphicon glyphicon-trash"  ></span></button>
+                        <input type="hidden" name="id" value="<%=t.getId()%>"> 
+                    </form>  
+                </center>
+                </td>
+                </tr>
+                <%
+                    }
+                %>
                 </tbody>
             </table>
         </div>
@@ -155,9 +159,9 @@
         <script src="js/dataTables.bootstrap.min.js"></script>
 
         <script type="text/javascript" class="init">
-                                    $(document).ready(function () {
-                                        $('#example').DataTable();
-                                    });
+                        $(document).ready(function () {
+                            $('#example').DataTable();
+                        });
         </script>
 
 
