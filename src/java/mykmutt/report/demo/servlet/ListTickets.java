@@ -26,9 +26,13 @@ public class ListTickets extends HttpServlet {
         String alert = null;
         String message = null;
         HttpSession session = request.getSession(false);
+        String position = (String) session.getAttribute("member_position");
 
         if (session != null) {
             if (session.getAttribute("member_id") != null && session.getAttribute("isLoged").equals("yes")) {
+                if (position.equals("1")) {
+                    target = "/UpdateStatus.jsp";        
+                }
                 List<Ticket> tickets = Ticket.getAllTickets();
                 request.setAttribute("tickets", tickets);
             } else {

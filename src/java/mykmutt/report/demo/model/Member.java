@@ -219,6 +219,18 @@ public class Member {
         }
         return id;
     }
+    
+    public static int getPositionByUsername(String username) throws SQLException {
+        String sqlCmd = "SELECT `member_position` FROM `member` WHERE member_username = '" + username + "'";
+        Connection conn = ConnectionBuilder.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sqlCmd);
+        int id = 0;
+        if(rs.next()){
+            id = rs.getInt("member_position");
+        }
+        return id;
+    }
 
     public static boolean isMember(String member_username, String member_password) {
         try {

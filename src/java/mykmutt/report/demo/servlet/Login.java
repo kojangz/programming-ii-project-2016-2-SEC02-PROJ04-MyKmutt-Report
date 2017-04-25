@@ -51,8 +51,10 @@ public class Login extends HttpServlet {
                 if (Member.isMember(member_username, member_password)) {
                     try {
                         String memberId = Member.getIdByUsername(member_username)+"";
+                        String memberPos = Member.getPositionByUsername(member_username)+"";
+                        session.setAttribute("member_position", memberPos);
                         session.setAttribute("member_id", memberId);
-                        session.setAttribute("isLoged", "yes");
+                        session.setAttribute("isLoged", "yes");                     
                         target = "/Home.jsp";
                     } catch (SQLException ex) {
                         System.err.println(ex);
