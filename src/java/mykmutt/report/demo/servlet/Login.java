@@ -61,14 +61,14 @@ public class Login extends HttpServlet {
                     }
                 } else {
                     code = "Error";
-                    alert = "Error!";
-                    message = "Re-Login Pleased.";
+                    alert = "The username & password didn't match.";
+                    message = "Please Try again.";
                 }
 
             } else {
                 code = "Error";
-                alert = "Error!";
-                message = "Re-Login Pleased.";
+                alert = "The username & password didn't match.";
+                message = "Please Try again.";
             }
 
         }

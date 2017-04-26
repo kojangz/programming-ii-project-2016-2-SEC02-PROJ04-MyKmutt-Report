@@ -119,7 +119,7 @@
                             <div class="form-group">
                                 <label for="exampleFaculty"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span> SELECT FACULTY</label>
                                 <select id="exampleFaculty" name="faculty" class="form-control">
-                                    <option value="-">SELECT FACULTY !!!</option>
+                                    <option>SELECT FACULTY !!!</option>
                                     <option value="ETE">คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาวิศวกรรมไฟฟ้า</option>
                                     <option value="ECT">คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาเทคโนโลยีการศึกษาและสื่อสารมวลชน</option>
                                     <option value="PT">คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สาขาเทคโนโลยีอุตสาหกรรม</option>
@@ -218,9 +218,9 @@
                                 </div>
                             </div>
                             <div class="button">
-                                <a href="login.jsp"><input name="submit" value="submit" type="submit" class="btn btn-default btn-lg active"></input></a>
-                                &nbsp;
-                                <input type="reset" class="btn btn-danger btn-lg active"></input>
+                                <a href="login.jsp"><input name="Submit" value="SUBMIT" type="Submit" class="btn btn-primary btn-lg "></input></a>
+                                or
+                                <input type="RESET" class="btn btn-danger btn-lg " value="RESET"></input>
                             </div>
                         </div>
                     </div>

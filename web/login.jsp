@@ -50,6 +50,7 @@
         </style>
     </head>
     <body>
+        <br>
         <div class="container">
             <div class="header">
                 <article>
@@ -60,8 +61,9 @@
             <%
                 if (request.getAttribute("code") != null) {
             %>
-            <div class="alert alert-<%=(String) request.getAttribute("code")%>">
-                <strong><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
+            <div class="alert alert-danger alert-<%=(String) request.getAttribute("code")%>">
+                <strong><font color="#000000"><%=(String) request.getAttribute("alert")%></strong> <%=(String) request.getAttribute("message")%>
+                </font>
             </div>
             <%
                 }
@@ -70,7 +72,6 @@
                 <div class="contents">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
-                            <br>
                             <div class="form-group">
                                 <label for="exampleUsername"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> USERNAME</label>
                                 <div class="input-group-addon"> ✎ </div>
@@ -90,15 +91,13 @@
                                 </font>
                             </div>
                         </div>
-                        <label>
-                            <input type="checkbox" name="remember"> <font size="4"> REMEMBER ME CLICK!! </font></input>
-                        </label>
-                        <div class="button">
-                            <p>
-                                <input type="submit" name="submit" class="btn btn-default btn-lg active" value="LOG IN"></input>
-                                <a href="Register"><button type="button" class="btn btn-warning btn-lg active">REGISTER</button></a>
-                            </p>
-                        </div>
+                    </div>
+                    <div class="button">
+                        <p>
+                            <input type="submit" name="submit" class="btn btn-primary btn-lg" value="LOG IN"></input>
+                         or  
+                            <a href="Register"><button type="button" class="btn btn-info btn-lg">REGISTER</button></a>
+                        </p>
                     </div>
                 </div>
             </form>
