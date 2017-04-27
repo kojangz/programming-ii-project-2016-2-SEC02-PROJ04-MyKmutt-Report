@@ -43,7 +43,7 @@ public class Ticket {
     public Ticket(String name, String desc, String place, int userId) throws SQLException {
         this.name = name;
         this.desc = desc;
-        this.place = Place.getNameById(Integer.parseInt(place));
+        this.place = place;
         this.status = 0;
         this.userId = userId;
     }

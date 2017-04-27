@@ -56,13 +56,14 @@
         </style>
     </head>
     <body>
-        <div class="container">            
+        <div class="container">   
             <div class="header">
                 <article>
                     <h2><font> ╔ <u>REGISTER</u> ╝</font></br>
-                    <font size=100> MY-KMUTT </font></h2>
+                        <font size=100> MY-KMUTT </font></h2>
                 </article>
             </div>
+
             <br>
             <%
                 if (request.getAttribute("code") != null) {
@@ -75,7 +76,7 @@
             %>
             <br>
             <div class="contents">
-                <form action="Register" method="POST">
+                <form action="Register" method="post"> 
                     <div class="row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -115,7 +116,6 @@
                         </div>
 
                         <div class="col-md-8">
-
                             <div class="form-group">
                                 <label for="exampleFaculty"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span> SELECT FACULTY</label>
                                 <select id="exampleFaculty" name="faculty" class="form-control">
@@ -187,7 +187,6 @@
                             </div>
                             <div class="row">               
                                 <div class="col-md-6">
-
                                     <div class="form-group">
                                         <label for="exampleUsername"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> CREATE NEW USERNAME</label>
                                         <font face="Tahoma">
@@ -216,19 +215,21 @@
                                         </font>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="button">
-                                <a href="login.jsp"><input name="Submit" value="SUBMIT" type="Submit" class="btn btn-primary btn-lg "></input></a>
-                                or
-                                <input type="RESET" class="btn btn-danger btn-lg " value="RESET"></input>
+                                <div class="button">
+                                    <a href="login.jsp"><input name="submit" value="submit" type="submit" class="btn btn-primary btn-lg "></input></a>
+                                    or
+                                    <input type="RESET" class="btn btn-danger btn-lg " value="RESET">
+                                </div>
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
-        </form>
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <br>
         <br>
-        </body>
-        </html>
+    </body>
+</html>

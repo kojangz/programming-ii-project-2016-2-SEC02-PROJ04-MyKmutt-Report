@@ -35,7 +35,7 @@
     <body>
         <br>
         <p align="right"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
-            Manassanan pop Login Now &nbsp;&nbsp;</font></p>
+            <%=session.getAttribute("member_name")%> Login Now &nbsp;&nbsp;</font></p>
         <br>
             <div class="header">
                 <h1>╔ <u>HOME</u> ╝</br>

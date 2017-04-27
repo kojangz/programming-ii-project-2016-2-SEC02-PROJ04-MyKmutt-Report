@@ -52,6 +52,7 @@ public class Login extends HttpServlet {
                     try {
                         String memberId = Member.getIdByUsername(member_username)+"";
                         String memberPos = Member.getPositionByUsername(member_username)+"";
+                        session.setAttribute("member_name", member_username);
                         session.setAttribute("member_position", memberPos);
                         session.setAttribute("member_id", memberId);
                         session.setAttribute("isLoged", "yes");                     

@@ -4,6 +4,7 @@
     Author     : Koichi
 --%>
 
+<%@page import="mykmutt.report.demo.model.Place"%>
 <%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -108,7 +109,7 @@
                     <tr>
                         <td><%=count++%></td>
                         <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
-                        <td><%=t.getPlace()%></td>
+                        <td><%=Place.getNameById(Integer.parseInt(t.getPlace()))%></td>
                         <td><%=t.getStatusName()%> </td>
                     </tr>
                     <%

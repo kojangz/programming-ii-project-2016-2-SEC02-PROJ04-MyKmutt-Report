@@ -66,6 +66,7 @@ public class Register extends HttpServlet {
                 }
             } catch (Exception ex) {
                 System.out.println("Catch ex regis: " + ex);
+                message += ex.getMessage();
             }
 
             request.setAttribute("code", code);
