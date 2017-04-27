@@ -69,7 +69,6 @@
                             <br>
                             <p> Location : <%=t.getPlace()%> </p>
                             <p> Status : <%=t.getStatusName()%> </p>
-
                         </div>
                     </div>
                 </div>
