@@ -4,6 +4,7 @@
     Author     : LENOVO
 --%>
 
+<%@page import="mykmutt.report.demo.model.Place"%>
 <%@page import="mykmutt.report.demo.model.Member"%>
 <%@page import="mykmutt.report.demo.model.Ticket"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -66,7 +67,7 @@
                             <%=t.getDesc()%>  
                             <br>
                             <br>
-                            <p> Location : <%=t.getPlace()%> </p>
+                            <p> Location : <%=%> </p>
                             <p> Status : <%=t.getStatusName()%> </p>
 
                         </div>
