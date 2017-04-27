@@ -46,7 +46,7 @@ public class EmailUtil {
                 }
             });
 
-            Message message = new MimeMessage(mailSession);
+            MimeMessage message = new MimeMessage(mailSession);
 
             message.setFrom(new InternetAddress(auth_email)); // From
 
@@ -55,8 +55,9 @@ public class EmailUtil {
              */
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email)); // To
-            message.setSubject(title);
+            message.setSubject(title,"UTF-8");
             message.setText(detail);
+            message.setContent(detail, "text / html;charset = UTF - 8");
 
             Transport.send(message);
 
@@ -70,18 +71,18 @@ public class EmailUtil {
     public static boolean sendRegister(Member m) {
         String title = "สมัครสมาชิกเสร็จสมบูรณ์";
         String detail = "คุณสมัครสมาชิกเสร็จสมบูรณ์แล้ว คุณ " + m.getName() + " " + m.getSurname() + "\n"
-                + "\nUsername ของคุณคือ " + m.getUsername() +"\n"
-                + "\nสามารถ log in เข้าระบบได้ที่ http://mykmutt.sit.kmutt.ac.th ค่ะ";
+                + "\nUsername ของคุณคือ " + m.getUsername() + "\n"
+                + "\nสามารถ log in เข้าระบบได้ที่ http://mykmutt.sit.kmutt.ac.th:8080/ReportSystem/ ค่ะ";
         return sendEmail(m.getEmail(), title, detail);
     }
 
     public static boolean sendUpdateStatus(Member m, Ticket t) {
         String title = "[My KMUTT - Report] Update Ticket Status";
-        String detail = "เรียน คุณ "+ m.getName()+" "+ m.getUsername()+"\n"
-                    + "\nจากปัญหาที่คุณได้แจ้งไว้ในระบบหัวข้อ “"+t.getName()+"”"
-                    + "\nมีการเปลี่ยนแปลงสถานะเป็น " + t.getStatusName()
-                    + "\n\nโปรดเข้าสู่ระบบเพื่อตรวจสอบได้ที่ http://mykmutt.sit.kmutt.ac.th ขอบคุณค่ะ";
+        String detail = "เรียน คุณ " + m.getName() + " " + m.getUsername() + "\n"
+                + "\nจากปัญหาที่คุณได้แจ้งไว้ในระบบหัวข้อ “" + t.getName() + "”"
+                + "\nมีการเปลี่ยนแปลงสถานะเป็น " + t.getStatusName()
+                + "\n\nโปรดเข้าสู่ระบบเพื่อตรวจสอบได้ที่ http://mykmutt.sit.kmutt.ac.th:8080/ReportSystem/ ขอบคุณค่ะ";
         return sendEmail(m.getEmail(), title, detail);
     }
-    
+
 }
