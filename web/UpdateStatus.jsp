@@ -77,7 +77,7 @@
                     </div>
                 </div><!--/.nav-collapse -->
                 <div class="block2"><a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font> 
-                        Pop Login Now</font></a></div>
+                        <%=session.getAttribute("member_name")%> Login Now</font></a></div>
             </div>
         </nav>
 
