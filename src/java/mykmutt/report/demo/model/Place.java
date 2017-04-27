@@ -83,6 +83,18 @@ public class Place {
         return places;
     }
     
+    public static String getNameById(int id) throws SQLException {
+        String sqlCmd = "SELECT `place_name` FROM `place` WHERE place_id = '" + id + "'";
+        Connection conn = ConnectionBuilder.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sqlCmd);
+        String name = "";
+        if(rs.next()){
+            name = rs.getString("place_name");
+        }
+        return name;
+    }
+    
     public static Place getPlaceById(int place_id) {
         Place p = null;
         try {
