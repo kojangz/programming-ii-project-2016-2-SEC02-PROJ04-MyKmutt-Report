@@ -67,7 +67,7 @@
                             <%=t.getDesc()%>  
                             <br>
                             <br>
-                            <p> Location : <%=t.getPlace()%> </p>
+                            <p> Location : <%=Place.getNameById(Integer.parseInt(t.getPlace()))%> </p>
                             <p> Status : <%=t.getStatusName()%> </p>
                         </div>
                     </div>
