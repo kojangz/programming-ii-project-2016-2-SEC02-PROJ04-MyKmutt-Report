@@ -57,8 +57,7 @@ public class EmailUtil {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email)); // To
             message.setSubject(title,"UTF-8");
-            message.setText(detail);
-            message.setContent(detail, "text / html;charset = UTF - 8");
+            message.setText(detail,"UTF-8");
 
             Transport.send(message);
 

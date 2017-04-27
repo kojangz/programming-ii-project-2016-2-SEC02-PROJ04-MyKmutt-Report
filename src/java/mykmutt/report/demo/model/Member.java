@@ -203,7 +203,7 @@ public class Member {
         if (gender.equals("F")) {
             return "Female";
         } else if (gender.equals("M")) {
-            return "Men";
+            return "Man";
         }
         return "";
     }
