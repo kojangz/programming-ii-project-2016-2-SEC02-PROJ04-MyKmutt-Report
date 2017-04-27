@@ -103,7 +103,7 @@
                 }
             %>
             <div class="content">
-                <form action="AddTicket" method="get">
+                <form action="AddTicket" method="post">
                     <div class="form-group">
                         <label for="title">TITLE</label>
                         <input name="name" type="text" class="form-control" id="title" placeholder="Title">

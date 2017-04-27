@@ -40,10 +40,10 @@ public class Ticket {
         this.status = 0;
     }
 
-    public Ticket(String name, String desc, String place, int userId) {
+    public Ticket(String name, String desc, String place, int userId) throws SQLException {
         this.name = name;
         this.desc = desc;
-        this.place = place;
+        this.place = Place.getNameById(Integer.parseInt(place));
         this.status = 0;
         this.userId = userId;
     }
