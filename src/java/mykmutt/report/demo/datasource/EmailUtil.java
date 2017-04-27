@@ -45,7 +45,8 @@ public class EmailUtil {
                     return new PasswordAuthentication(auth_email, auth_password);
                 }
             });
-
+ 
+           
             MimeMessage message = new MimeMessage(mailSession);
 
             message.setFrom(new InternetAddress(auth_email)); // From
