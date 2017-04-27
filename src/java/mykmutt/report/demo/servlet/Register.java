@@ -51,13 +51,18 @@ public class Register extends HttpServlet {
                 String password = request.getParameter("password");
                 String rePassword = request.getParameter("repassword");
                 if (password.equals(rePassword)) {
-                    password=PasswordUtil.getKeepPassword(password);
+                    password = PasswordUtil.getKeepPassword(password);
                     Member mb = new Member(name, surname, student_ID, gender, faculty, email, username, password, 0);
-                    mb.addMember();
-                    EmailUtil.sendRegister(mb);
-                    code = "success";
-                    alert = "Success!";
-                    message = "Register complete!.";
+                    if (mb.addMember()) {
+                        EmailUtil.sendRegister(mb);
+                        code = "success";
+                        alert = "Success!";
+                        message = "Register complete!.";
+                    } else {
+                        code = "success";
+                        alert = "Success!";
+                        message = "Username , StudentId or e-mail is!.";
+                    }
                     target = "/login.jsp";
                 } else {
                     code = "warning";
@@ -66,7 +71,6 @@ public class Register extends HttpServlet {
                 }
             } catch (Exception ex) {
                 System.out.println("Catch ex regis: " + ex);
-                message += ex.getMessage();
             }
 
             request.setAttribute("code", code);
