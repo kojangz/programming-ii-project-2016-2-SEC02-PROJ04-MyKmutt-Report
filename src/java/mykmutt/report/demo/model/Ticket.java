@@ -18,7 +18,7 @@ import mykmutt.report.demo.datasource.ConnectionBuilder;
 
 /**
  *
- * @author Koichi
+ * @author Antonymz
  */
 public class Ticket {
 
