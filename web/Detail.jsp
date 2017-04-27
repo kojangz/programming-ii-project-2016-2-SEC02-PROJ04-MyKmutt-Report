@@ -15,13 +15,11 @@
         <link href="css/sticky-footer-navbar.css" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <title>Detail</title>
-    </head>
-    <body>
         <style>
             html,body{
                 background-color:#F5F5F5;
             }
-            .header{
+            .page-header{
                 background-color:#FFFFFF;
                 padding-top: 40px ;
                 padding-left: 30px;
@@ -42,22 +40,51 @@
                 padding-bottom: 5%;
             }
             .container{
-                margin-bottom: 4%;
                 width:900px;
             }
-            
+            .block1{
+                float:right;
+            }
         </style>
+    </head>
+    <body>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="ListTickets">My KMUTT - Report &nbsp;&nbsp; | </a>
+                </div>
+                <div class="block1">
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                            <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
+                            <li class="active"><a href="ListTickets"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> List all ticket</a></li>
+                            <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log out</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.nav-collapse -->
+                <div class="block2"><a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
+                        <%=session.getAttribute("member_name")%> Login Now</font></a></div>
+            </div>
+        </nav>
         <div class="container">
-            <div class="header">
-            <h1><font size="600">╔ <b><u>DETAIL OF TICKET</u></b> ╝</font></br>
-                     <font size=70> MY-KMUTT </font>
+            <div class="page-header">
+                <h1><font size="600">╔ <b><u>DETAIL OF TICKET</u></b> ╝</font></br>
+                    <font size=70> MY-KMUTT </font>
                 </h1>
 
-            <%
-                Ticket t = (Ticket) request.getAttribute("ticket");
-                Member m = Member.getMember(t.getUserId());
+                <%
+                    Ticket t = (Ticket) request.getAttribute("ticket");
+                    Member m = Member.getMember(t.getUserId());
 
-            %>
+                %>
             </div><br>
             <div class="row">
                 <div class="col-md-8">

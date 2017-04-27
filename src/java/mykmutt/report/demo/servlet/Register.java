@@ -56,8 +56,8 @@ public class Register extends HttpServlet {
                     if (mb.addMember()) {
                         EmailUtil.sendRegister(mb);
                         code = "success";
-                        alert = "Success!";
-                        message = "Register complete!.";
+                        alert = "Register complete!";
+                        message = "Please log in now...";
                     } else {
                         code = "success";
                         alert = "Success!";
@@ -67,7 +67,7 @@ public class Register extends HttpServlet {
                 } else {
                     code = "warning";
                     alert = "Warning!";
-                    message = "Register Re-complete!.";
+                    message = "Password didn't match...";
                 }
             } catch (Exception ex) {
                 System.out.println("Catch ex regis: " + ex);
