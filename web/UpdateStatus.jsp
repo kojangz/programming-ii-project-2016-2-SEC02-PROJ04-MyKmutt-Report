@@ -65,21 +65,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="ListTickets">My KMUTT - Report &nbsp;&nbsp; | </a>
+                    <div class="block2">
+                        <a class="navbar-brand" href="ListTickets">My-KMUTT Report |</a>
+                        <a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
+                            <%=session.getAttribute("member_name")%> Login Now</font></a>
+
+                        <div class="block1">
+                            <div id="navbar" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                                    <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
+                                    <li class="active"><a href="UpdateStatus"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Update All Ticket</a></li>
+                                    <li><a href="MyTickets"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> My Tickets</a></li>
+                                    <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--/.nav-collapse -->
+
                 </div>
-                <div class="block1">
-                    <div id="navbar" class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                            <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
-                            <li class="active"><a href="UpdateStatus"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Update All Ticket</a></li>
-                            <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.nav-collapse -->
-                <div class="block2"><a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font> 
-                        <%=session.getAttribute("member_name")%> Login Now</font></a></div>
-            </div>
         </nav>
 
         <!-- Begin page content -->
