@@ -126,11 +126,11 @@
 
 
                 %>
+                
                 <tr>
-                    <td> </td>
-                    <td><a href = "" target="_blank"> </a></td>
-                    <td> </td>
-                    <td> </td>
+                    
+                    <td colspan="4" ><center> No Data </center></td>
+                    
                 </tr>
                 <%                        }
                 %>
