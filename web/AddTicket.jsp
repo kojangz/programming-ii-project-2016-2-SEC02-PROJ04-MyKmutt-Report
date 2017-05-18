@@ -106,15 +106,15 @@
                 <form action="AddTicket" method="post">
                     <div class="form-group">
                         <label for="title">TITLE</label>
-                        <input name="name" type="text" class="form-control" id="title" placeholder="Title">
+                        <input name="name" type="text" class="form-control" id="title" placeholder="Title" required="">
                     </div>
                     <div class="form-group">
                         <label for="desc">DESCRIPTION</label>
-                        <textarea name="desc" class="form-control" id="desc" rows="3" placeholder="Description"></textarea>
+                        <textarea name="desc" class="form-control" id="desc" rows="3" placeholder="Description" required=""></textarea>
                     </div>
                     <div class="form-group">
                         <label for="place">LOCATION</label>
-                        <select id="exampleFaculty" name="place" class="form-control">
+                        <select id="exampleFaculty" name="place" class="form-control" required="">
                             <%
                                 ArrayList<Place> places = Place.getAllPlaces();
                                 for (Place p : places) {
