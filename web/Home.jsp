@@ -37,14 +37,25 @@
         <p align="right"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
             <%=session.getAttribute("member_name")%> Login Now &nbsp;&nbsp;</font></p>
         <br>
-            <div class="header">
-                <h1>╔ <u>HOME</u> ╝</br>
-                     <font size=100> MY-KMUTT </font>
-                </h1>
-            </div>
-            <div class="container">
+        <div class="header">
+            <h1>╔ <u>HOME</u> ╝</br>
+                <font size=100> MY-KMUTT </font>
+            </h1>
+        </div>
+        <div class="container">
             <a href="AddTicket"><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Add Ticket ! </button></a><br>
-            <a href="ListTickets"><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> List All Tickets !</button></a><br>
+            <div class="row">               
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <a href="ListTickets"><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> List All Tickets !</button></a><br>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <a href=""><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> My Tickets !</button></a><br>
+                    </div>
+                </div>
+            </div>
             <a href="Logout"><button type="button" class="btn btn-default btn-lg btn-block"> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> LOG OUT </button></a>
         </div>
     </body>
