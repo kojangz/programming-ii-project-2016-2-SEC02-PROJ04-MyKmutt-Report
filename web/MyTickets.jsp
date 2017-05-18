@@ -90,7 +90,7 @@
                 <h1><font size="600">╔ <b><u>MY TICKETS</u></b> ╝</font>
                     </br><font size=50> MY-KMUTT </font></h1>
             </div>
-                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -101,9 +101,10 @@
                 </thead>
                 <tbody>
                     <%
-                        List<Ticket> tickets = (List) request.getAttribute("tickets");
-                        int count = 1;
-                        for (Ticket t : tickets) {
+                        if (request.getAttribute("tickets") != null) {
+                            List<Ticket> tickets = (List) request.getAttribute("tickets");
+                            int count = 1;
+                            for (Ticket t : tickets) {
                     %>
                     <tr>
                         <td><%=count++%></td>
@@ -112,6 +113,19 @@
                         <td><%=t.getStatusName()%> </td>
                     </tr>
                     <%
+                        }
+                    } else {
+              
+                        
+                    %>
+                    <tr>
+                        <td> </td>
+                        <td><a href = "" target="_blank"> </a></td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <%
+                            
                         }
                     %>
                 </tbody>
