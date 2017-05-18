@@ -73,7 +73,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                             <li><a href="AddTicket"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ticket</a></li> 
-                            <li><a href="ListTicket"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List all tickets</a></li>
+                            <li><a href="ListTickets"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List all tickets</a></li>
                             <li class="active"><a href="MyTickets"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> My Tickets</a></li>
                             <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log out</a></li>
                         </ul>
@@ -100,15 +100,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                     
+                    <%
+                        List<Ticket> tickets = (List) request.getAttribute("tickets");
+                        int count = 1;
+                        for (Ticket t : tickets) {
+                    %>
                     <tr>
-                        <td>xxx</td>
-                        <td>xxx</a></td>
-                        <td>xxx</td>
-                        <td>xxx</td>
+                        <td><%=count++%></td>
+                        <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
+                        <td><%=Place.getNameById(Integer.parseInt(t.getPlace()))%></td>
+                        <td><%=t.getStatusName()%> </td>
                     </tr>
-                    
-                    
+                    <%
+                        }
+                    %>
                 </tbody>
             </table>
         </div>
