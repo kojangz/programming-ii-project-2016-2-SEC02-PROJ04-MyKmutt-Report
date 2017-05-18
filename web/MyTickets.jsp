@@ -48,9 +48,12 @@
                 text-align:center;
             }
             .container{
-                width:900px;
+                width:1000px;
             }
             .block1{
+                float:right;
+            }
+            .now{
                 float:right;
             }
         </style>
@@ -68,8 +71,6 @@
                     </button>
                     <div class="block2">
                         <a class="navbar-brand" href="MyTickets">My-KMUTT Report |</a>
-                        <a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
-                            <%=session.getAttribute("member_name")%> Login Now</font></a>
                         <div class="block1">
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
@@ -83,58 +84,59 @@
                         </div><!--/.nav-collapse -->
                     </div>
                 </div>
+                <div class="now">
+                    <a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
+                        <%=session.getAttribute("member_name")%> Login Now</font></a>
+                </div>
             </div>
 
+    </nav>
 
-        </nav>
-
-        <!-- Begin page content -->
-        <div class="container">
-            <div class="page-header">
-                <h1><font size="600">╔ <b><u>MY TICKETS</u></b> ╝</font>
-                    </br><font size=50> MY-KMUTT </font></h1>
-            </div>
-            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Ticket Title</th>
-                        <th>Location</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        if (request.getAttribute("tickets") != null) {
-                            List<Ticket> tickets = (List) request.getAttribute("tickets");
-                            int count = 1;
-                            for (Ticket t : tickets) {
-                    %>
-                    <tr>
-                        <td><%=count++%></td>
-                        <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
-                        <td><%=Place.getNameById(Integer.parseInt(t.getPlace()))%></td>
-                        <td><%=t.getStatusName()%> </td>
-                    </tr>
-                    <%
-                        }
-                    } else {
-              
-                        
-                    %>
-                    <tr>
-                        <td> </td>
-                        <td><a href = "" target="_blank"> </a></td>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
-                    <%
-                            
-                        }
-                    %>
-                </tbody>
-            </table>
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1><font size="600">╔ <b><u>MY TICKETS</u></b> ╝</font>
+                </br><font size=50> MY-KMUTT </font></h1>
         </div>
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Ticket Title</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                    if (request.getAttribute("tickets") != null) {
+                        List<Ticket> tickets = (List) request.getAttribute("tickets");
+                        int count = 1;
+                        for (Ticket t : tickets) {
+                %>
+                <tr>
+                    <td><%=count++%></td>
+                    <td><a href = "Detail?id=<%=t.getId()%>" target="_blank"><%=t.getName()%></a></td>
+                    <td><%=Place.getNameById(Integer.parseInt(t.getPlace()))%></td>
+                    <td><%=t.getStatusName()%> </td>
+                </tr>
+                <%
+                    }
+                } else {
 
-    </body>
+
+                %>
+                <tr>
+                    <td> </td>
+                    <td><a href = "" target="_blank"> </a></td>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+                <%                        }
+                %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
 </html>

@@ -47,9 +47,12 @@
                 text-align:center;
             }
             .container{
-                width:900px;
+                width:1000px;
             }
             .block1{
+                float:right;
+            }
+            .now{
                 float:right;
             }
         </style>
@@ -68,8 +71,7 @@
                     </button>
                     <div class="block2">
                         <a class="navbar-brand" href="ListTickets">My-KMUTT Report |</a>
-                        <a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
-                            <%=session.getAttribute("member_name")%> Login Now</font></a>
+
                         <div class="block1">
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
@@ -82,8 +84,13 @@
                             </div><!--/.nav-collapse -->
                         </div>
                     </div>
-
                 </div>
+                <div class="now">
+                    <a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
+                        <%=session.getAttribute("member_name")%> Login Now</font></a>
+                </div>
+            </div>
+
         </nav>
 
         <!-- Begin page content -->
