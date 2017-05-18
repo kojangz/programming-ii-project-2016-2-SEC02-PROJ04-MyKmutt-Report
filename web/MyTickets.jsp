@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Report - Ticket List</title>
+        <title>Report - My Ticket</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +67,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="block2">
-                        <a class="navbar-brand" href="ListTickets">My-KMUTT Report |</a>
+                        <a class="navbar-brand" href="MyTickets">My-KMUTT Report |</a>
                         <a class="navbar-brand"><font size="3"><font color="#9ACD32"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></font>
                             <%=session.getAttribute("member_name")%> Login Now</font></a>
                         <div class="block1">
