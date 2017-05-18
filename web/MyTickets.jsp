@@ -105,9 +105,10 @@
                 </thead>
                 <tbody>
                     <%
-                        List<Ticket> tickets = (List) request.getAttribute("tickets");
-                        int count = 1;
-                        for (Ticket t : tickets) {
+                        if (request.getAttribute("tickets") != null) {
+                            List<Ticket> tickets = (List) request.getAttribute("tickets");
+                            int count = 1;
+                            for (Ticket t : tickets) {
                     %>
                     <tr>
                         <td><%=count++%></td>
@@ -116,6 +117,19 @@
                         <td><%=t.getStatusName()%> </td>
                     </tr>
                     <%
+                        }
+                    } else {
+              
+                        
+                    %>
+                    <tr>
+                        <td> </td>
+                        <td><a href = "" target="_blank"> </a></td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <%
+                            
                         }
                     %>
                 </tbody>
