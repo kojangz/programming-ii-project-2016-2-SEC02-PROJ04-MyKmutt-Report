@@ -149,6 +149,28 @@ public class Ticket {
         return tickets;
     }
 
+    public static List<Ticket> getMyTickets(int userId) {
+        Ticket t = null;
+        List<Ticket> tickets = null;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement stmt = conn.createStatement();
+            String sqlCmd = "SELECT * FROM `ticket` WHERE ticket_user = "+userId;
+            ResultSet rs = stmt.executeQuery(sqlCmd);
+            while (rs.next()) {
+                t = new Ticket();
+                ORM(t, rs);
+                if (tickets == null) {
+                    tickets = new ArrayList<Ticket>();
+                }
+                tickets.add(t);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Ticket.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tickets;
+    }
+  
     public boolean addTicket() {
         if (name.length() > 0 && desc.length() > 0 && place.length() > 0) {
             try {

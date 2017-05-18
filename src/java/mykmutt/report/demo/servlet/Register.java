@@ -61,7 +61,7 @@ public class Register extends HttpServlet {
                     } else {
                         code = "success";
                         alert = "Success!";
-                        message = "Username , StudentId or e-mail is!.";
+                        message = "Username , StudentId or e-mail is USED!.";
                     }
                     target = "/login.jsp";
                 } else {
