@@ -53,7 +53,7 @@
             .block1{
                 float:right;
             }
-            now{
+            .now{
                 float:right;
             }
         </style>
