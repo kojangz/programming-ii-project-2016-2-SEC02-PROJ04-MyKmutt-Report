@@ -45,14 +45,14 @@ public class Home extends HttpServlet {
                 message = "... Success!!";
                 out.print("Hello, " + member + " Welcome to Profile");
             } else {
-                code = "Error";
-                alert = "Error!";
+                code = "warning";
+                alert = "Warning!";
                 message = "Re-Login Pleased.";
                 target = "/login.jsp";
             }
         } else {
-            code = "Error";
-            alert = "Error!";
+            code = "warning";
+            alert = "Warning!";
             message = "Re-Login Pleased.";
 
         }

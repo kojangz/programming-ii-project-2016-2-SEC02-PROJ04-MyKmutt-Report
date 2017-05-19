@@ -56,15 +56,15 @@ public class DeleteTicket extends HttpServlet {
                         }
                     }
                 } else {
-                    code = "Error";
-                    alert = "Error!";
+                    code = "warning";
+                    alert = "Warning!";
                     ticket_message = "Wrong Position.";
                     target = "/ListTickets.jsp";
                 }
 
             } else {
-                code = "Error";
-                alert = "Error!";
+                code = "warning";
+                alert = "Warning!";
                 ticket_message = "Re-Login Pleased.";
                 target = "/login.jsp";
             }

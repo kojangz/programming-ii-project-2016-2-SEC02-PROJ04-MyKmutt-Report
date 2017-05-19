@@ -59,7 +59,7 @@ public class Register extends HttpServlet {
                         alert = "Register complete!";
                         message = "Please log in now...";
                     } else {
-                        code = "Warning!";
+                        code = "warning";
                         alert = "Warning!";
                         message = "Username , StudentId or e-mail is USED!.";
                     }

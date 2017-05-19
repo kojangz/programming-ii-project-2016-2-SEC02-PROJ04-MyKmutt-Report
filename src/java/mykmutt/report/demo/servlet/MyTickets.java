@@ -49,14 +49,14 @@ public class MyTickets extends HttpServlet {
                 List<Ticket> tickets = Ticket.getMyTickets(userId);
                 request.setAttribute("tickets", tickets);
             } else {
-                code = "Error";
-                alert = "Error!";
+                code = "warning";
+                alert = "Warning!";
                 message = "Re-Login Pleased.";
                 target = "/login.jsp";
             }
         } else {
-            code = "Error";
-            alert = "Error!";
+            code = "warning";
+            alert = "Warning!";
             message = "Re-Login Pleased.";
         }
         request.setAttribute("code", code);

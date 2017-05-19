@@ -61,13 +61,13 @@ public class Login extends HttpServlet {
                         System.err.println(ex);
                     }
                 } else {
-                    code = "Error";
+                    code = "warning";
                     alert = "The username & password didn't match.";
                     message = "Please Try again.";
                 }
 
             } else {
-                code = "Error";
+                code = "warning";
                 alert = "The username & password didn't match.";
                 message = "Please Try again.";
             }

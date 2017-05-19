@@ -61,8 +61,8 @@ public class UpdateStatus extends HttpServlet {
                         }
                     }
                 } else {
-                    code = "Error";
-                    alert = "Error!";
+                    code = "warning";
+                    alert = "Warning!";
                     ticket_message = "Wrong Position.";
                     target = "/ListTickets.jsp";
                 }

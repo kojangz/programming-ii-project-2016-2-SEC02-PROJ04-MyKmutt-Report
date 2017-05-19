@@ -60,14 +60,14 @@ public class AddTicket extends HttpServlet {
                     
                 }
             } else {
-                code = "Error";
-                alert = "Error!";
+                code = "warning";
+                alert = "Warning!";
                 message = "Re-Login Pleased.";
                 target = "/login.jsp";
             }
         } else {
-            code = "Error";
-            alert = "Error!";
+            code = "warning";
+            alert = "Warning!";
             message = "Re-Login1 Pleased.";
         }
         
